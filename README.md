@@ -48,10 +48,14 @@ AgentBricks-Lab/
 ├── docs/
 │   └── GUIA_NOTEBOOKS.md     ← passo a passo detalhado dos notebooks
 └── notebooks/
-    ├── 01_generate_data.ipynb
-    ├── 02_create_functions.ipynb
-    ├── 03_1_genie_spaces.ipynb
-    └── 03_2_genie_tools.ipynb
+    ├── 01_generate_data/
+    │   └── 01_generate_data.ipynb
+    ├── 02_create_functions/
+    │   └── 02_create_functions.ipynb
+    ├── 03_1_genie_spaces/
+    │   └── 03_1_genie_spaces.ipynb
+    └── 03_2_genie_tools/
+        └── 03_2_genie_tools.ipynb
 ```
 
 ---
@@ -60,10 +64,10 @@ AgentBricks-Lab/
 
 ### Parte 1 — Notebooks (ordem obrigatória)
 
-1. **`01_generate_data.ipynb`** — Gera tabelas de vendas/logística e **Metric Views** (`mvw_inventory`, `mvw_sales`) em `dbacademy.<seu_database>` (substitua pelo seu identificador).
-2. **`02_create_functions.ipynb`** — Cria funções UC (`get_store_by_id`, `geocode_address`).
-3. **`03_1_genie_spaces.ipynb`** — Orientação para criar **dois Genie Spaces** (logística/inventário e vendas) na interface, usando as metric views.
-4. **`03_2_genie_tools.ipynb`** — Cria `_genie_query` e o *wrapper* `chat_with_sales`; exige configurar **host**, **token** e **ID do espaço Genie** conforme células SQL.
+1. **`notebooks/01_generate_data/`** — `01_generate_data.ipynb`: gera tabelas de vendas/logística e **Metric Views** (`mvw_inventory`, `mvw_sales`) em `dbacademy.<seu_database>` (substitua pelo seu identificador).
+2. **`notebooks/02_create_functions/`** — `02_create_functions.ipynb`: cria funções UC (`get_store_by_id`, `geocode_address`).
+3. **`notebooks/03_1_genie_spaces/`** — `03_1_genie_spaces.ipynb`: orientação para criar **dois Genie Spaces** (logística/inventário e vendas) na interface, usando as metric views.
+4. **`notebooks/03_2_genie_tools/`** — `03_2_genie_tools.ipynb`: cria `_genie_query` e o *wrapper* `chat_with_sales`; exige configurar **host**, **token** e **ID do espaço Genie** conforme células SQL.
 
 Para comandos, validações e cuidados (IDs aleatórios, substituição de `store_id`, rede), use o **[Guia dos notebooks](./docs/GUIA_NOTEBOOKS.md)**.
 
