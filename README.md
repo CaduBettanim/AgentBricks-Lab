@@ -51,9 +51,12 @@ AgentBricks-Lab/
 │   └── 01_generate_data.ipynb
 ├── Lab 2 - Criação de Funções/
 │   └── 02_create_function.ipynb
-└── Lab 3 - Criação de Salas Genie/
-    ├── 03_1_genie_spaces.ipynb
-    └── 03_2_genie_tools.ipynb
+├── Lab 3 - Criação de Salas Genie/
+│   ├── 03_1_genie_spaces.ipynb
+│   └── 03_2_genie_tools.ipynb
+├── Lab 4 - Criação do Knowledge Assistant/
+├── Lab 5 - Criação do Supervisor/
+└── Lab 6 - Criação do App/
 ```
 
 ---
@@ -72,14 +75,15 @@ AgentBricks-Lab/
 
 Para comandos, validações e cuidados (IDs aleatórios, substituição de `store_id`, rede), use o **[Guia dos notebooks](./docs/GUIA_NOTEBOOKS.md)**.
 
-### Parte 2 — AgentBricks (interface)
+### Parte 2 — AgentBricks e app (interface)
 
-5. **Knowledge Assistant** — No AgentBricks, crie um assistente de conhecimento apontando para o **volume** **`faq_lojas`** no catálogo **`dbacademy`** (caminho completo conforme definido no workspace, por exemplo `dbacademy.<schema_do_volume>.faq_lojas` ou estrutura equivalente do seu ambiente).
-6. **Supervisor** — No AgentBricks, configure um **supervisor** que utilize:
-   - os **dois Genie Spaces** criados no Lab 3 (logística e vendas);
-   - o **Knowledge Assistant** do passo 5.
+**Lab 4 - Criação do Knowledge Assistant** — pasta [`Lab 4 - Criação do Knowledge Assistant/`](./Lab%204%20-%20Criação%20do%20Knowledge%20Assistant/): no AgentBricks, criar assistente de conhecimento apontando para o **volume** **`faq_lojas`** no catálogo **`dbacademy`** (caminho completo conforme o workspace, ex.: `dbacademy.<schema_do_volume>.faq_lojas`). *Material detalhado será adicionado nesta pasta.*
 
-Siga na UI as opções de seleção de ferramentas/espacos que o produto exibir na sua versão; o instrutor demonstrará o fluxo no dia do treinamento.
+**Lab 5 - Criação do Supervisor** — pasta [`Lab 5 - Criação do Supervisor/`](./Lab%205%20-%20Criação%20do%20Supervisor/): no AgentBricks, configurar um **supervisor** que utilize os **dois Genie Spaces** do Lab 3 (logística e vendas) e o **Knowledge Assistant** do Lab 4. *Material detalhado será adicionado nesta pasta.*
+
+**Lab 6 - Criação do App** — pasta [`Lab 6 - Criação do App/`](./Lab%206%20-%20Criação%20do%20App/): criação/publicação do aplicativo associado ao fluxo do treinamento. *Material detalhado será adicionado nesta pasta.*
+
+Siga na UI as opções que o produto exibir na sua versão; o instrutor demonstrará o fluxo no dia do treinamento.
 
 ---
 

@@ -104,11 +104,12 @@ Substitua o ID no exemplo `get_store_by_id("...")` por um dos retornados.
 
 ---
 
-## Próximos passos (UI — AgentBricks)
+## Próximos passos (UI — AgentBricks e app)
 
-Após os notebooks:
+Após o Lab 3, siga as pastas na raiz do repositório (conteúdo em evolução):
 
-1. **Knowledge Assistant** apontando para o volume **`dbacademy` … `faq_lojas`** (caminho exato do volume conforme workspace).
-2. **Supervisor no AgentBricks** combinando os **dois Genie Spaces** (logística e vendas) e o **Knowledge Assistant**.
+1. **Lab 4 - Criação do Knowledge Assistant** — volume `faq_lojas` no catálogo `dbacademy` (caminho exato conforme workspace).
+2. **Lab 5 - Criação do Supervisor** — dois Genie Spaces (Lab 3) + Knowledge Assistant (Lab 4).
+3. **Lab 6 - Criação do App** — aplicativo do treinamento.
 
-O roteiro detalhado da interface está no [README](../README.md#parte-2--agentbricks-interface).
+O roteiro completo está no [README](../README.md) (seção *Roteiro do treinamento*).
