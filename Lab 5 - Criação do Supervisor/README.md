@@ -1,6 +1,6 @@
 # Lab 5 — Criação do Supervisor (Agent Bricks)
 
-Este laboratório guia a criação de um **Agent Bricks: Supervisor Agent** que orquestra **vários subagentes**: os **dois Genie Spaces** do [Lab 3](../Lab%203%20-%20Criação%20de%20Salas%20Genie/) e o **Knowledge Assistant** do [Lab 4](../Lab%204%20-%20Criação%20do%20Knowledge%20Assistant/README.md).
+Este laboratório guia a criação de um **Agent Bricks: Supervisor Agent** que orquestra **vários subagentes**: os **dois Genie Spaces** do [Lab 4](../Lab%204%20-%20Criação%20de%20Salas%20Genie/) e o **Knowledge Assistant** do [Lab 1](../Lab%201%20-%20Criação%20do%20Knowledge%20Assistant/README.md).
 
 Documentação oficial: [Supervisor Agent — multi-agent system](https://docs.databricks.com/aws/en/generative-ai/agent-bricks/multi-agent-supervisor).
 
@@ -9,21 +9,21 @@ Documentação oficial: [Supervisor Agent — multi-agent system](https://docs.d
 ## Objetivo
 
 - Criar um **supervisor** na UI **Agents** que delega perguntas aos especialistas certos:
-  - **Genie (logística / inventário)** — dados estruturados ligados à **Metric View** `dbacademy.<seu_database>.mvw_inventory` (conforme [Lab 3](../Lab%203%20-%20Criação%20de%20Salas%20Genie/03_1_genie_spaces.ipynb)).
+  - **Genie (logística / inventário)** — dados estruturados ligados à **Metric View** `dbacademy.<seu_database>.mvw_inventory` (conforme [Lab 4](../Lab%204%20-%20Criação%20de%20Salas%20Genie/03_1_genie_spaces.ipynb)).
   - **Genie (vendas)** — dados estruturados ligados à **Metric View** `dbacademy.<seu_database>.mvw_sales`.
-  - **Knowledge Assistant** — documentos do volume **`faq_volume`** (`dbacademy.<schema_do_volume>.faq_volume`), criado no [Lab 4](../Lab%204%20-%20Criação%20do%20Knowledge%20Assistant/README.md).
+  - **Knowledge Assistant** — documentos do volume **`faq_volume`** (`dbacademy.<schema_do_volume>.faq_volume`), criado no [Lab 1](../Lab%201%20-%20Criação%20do%20Knowledge%20Assistant/README.md).
 - Deixar o supervisor pronto para uso no [Lab 6](../Lab%206%20-%20Criação%20do%20App/) (app) ou em testes no Playground.
 
 > **`<seu_database>`** e **`<schema_do_volume>`** seguem as convenções do [README principal](../README.md#catálogo-e-database-schema-pessoal): substitua pelos valores do seu ambiente de treinamento. Na documentação pedagógica usamos sempre o catálogo **`dbacademy`**.
 
 ---
 
-## Antes de começar (dependências dos Labs 3 e 4)
+## Antes de começar (dependências dos Labs 1 e 4)
 
 | Pré-requisito | Onde foi feito |
 |---------------|----------------|
-| **Dois Genie Spaces** distintos (logística/inventário e vendas), cada um apontando para as metric views corretas em **`dbacademy.<seu_database>`** | [Lab 3 — `03_1_genie_spaces.ipynb`](../Lab%203%20-%20Criação%20de%20Salas%20Genie/03_1_genie_spaces.ipynb) (criação na UI Genie + instruções no notebook). Opcionalmente [`03_2_genie_tools.ipynb`](../Lab%203%20-%20Criação%20de%20Salas%20Genie/03_2_genie_tools.ipynb) para funções UC. |
-| **Knowledge Assistant** publicado como **agent endpoint** (Agent Bricks) | [Lab 4 — README](../Lab%204%20-%20Criação%20do%20Knowledge%20Assistant/README.md) |
+| **Dois Genie Spaces** (logística/inventário e vendas) em **`dbacademy.<seu_database>`** | [Lab 4 — `03_1_genie_spaces.ipynb`](../Lab%204%20-%20Criação%20de%20Salas%20Genie/03_1_genie_spaces.ipynb). Opcionalmente [`03_2_genie_tools.ipynb`](../Lab%204%20-%20Criação%20de%20Salas%20Genie/03_2_genie_tools.ipynb). |
+| **Knowledge Assistant** (endpoint) | [Lab 1 — README](../Lab%201%20-%20Criação%20do%20Knowledge%20Assistant/README.md) (**inicie o Lab 1 no começo do treinamento** — a criação demora). |
 | Permissões | Quem for **usar** o supervisor precisa de acesso aos **dois espaços Genie** (e aos dados UC por trás deles) e permissão **Can Query** no endpoint do Knowledge Assistant. Quem criou cada recurso deve compartilhar conforme a [documentação de compartilhamento de Genie](https://docs.databricks.com/aws/en/genie/set-up#share-a-genie-space) e as permissões do Agent Bricks. |
 
 Anote os **nomes** dos dois Genie Spaces e o **nome do Knowledge Assistant** (ou endpoint) para selecioná-los nos passos abaixo.
@@ -54,7 +54,7 @@ Em **Configure Agents**, você deve incluir **três** entradas (use **+ Add** en
 #### 3.1 Primeiro Genie Space — logística / inventário
 
 1. Em **Type**, selecione **Genie Space**.
-2. No menu do espaço Genie, escolha o espaço criado no **Lab 3** para **inventário / logística** (metric view **`mvw_inventory`** em `dbacademy.<seu_database>`).
+2. No menu do espaço Genie, escolha o espaço criado no **Lab 4** para **inventário / logística** (metric view **`mvw_inventory`** em `dbacademy.<seu_database>`).
 3. Revise **Agent name** e **Describe the content** (a UI pode preencher automaticamente). Ajuste para o supervisor delegar bem, por exemplo em **Describe the content**:
 
    > *Especialista em estoque e inventário de lojas. Use para perguntas sobre níveis de estoque, produtos, lojas e métricas de inventário a partir da base configurada no Genie (dados em dbacademy.<seu_database>, visão mvw_inventory).*
@@ -63,16 +63,16 @@ Em **Configure Agents**, você deve incluir **três** entradas (use **+ Add** en
 
 1. Clique em **+ Add**.
 2. **Type:** **Genie Space**.
-3. Selecione o espaço Genie de **vendas** do **Lab 3** (metric view **`mvw_sales`** em `dbacademy.<seu_database>`).
+3. Selecione o espaço Genie de **vendas** do **Lab 4** (metric view **`mvw_sales`** em `dbacademy.<seu_database>`).
 4. Refine **Describe the content**, por exemplo:
 
    > *Especialista em vendas e desempenho comercial. Use para perguntas sobre quantidade vendida, faturamento, ticket médio e rankings de produtos ou lojas (dados em dbacademy.<seu_database>, visão mvw_sales).*
 
-#### 3.3 Knowledge Assistant (Lab 4)
+#### 3.3 Knowledge Assistant (Lab 1)
 
 1. Clique em **+ Add**.
 2. **Type:** **Agent endpoint** (no fluxo do Supervisor, o Knowledge Assistant criado no Agent Bricks aparece como endpoint de agente).
-3. Selecione o **endpoint do Knowledge Assistant** criado no [Lab 4](../Lab%204%20-%20Criação%20do%20Knowledge%20Assistant/README.md) (o mesmo agente baseado no volume **`faq_volume`** / `dbacademy.<schema_do_volume>.faq_volume`).
+3. Selecione o **endpoint do Knowledge Assistant** criado no [Lab 1](../Lab%201%20-%20Criação%20do%20Knowledge%20Assistant/README.md) (volume **`faq_volume`** / `dbacademy.<schema_do_volume>.faq_volume`).
 4. Ajuste **Agent name** e **Describe the content** se necessário, por exemplo:
 
    > *Especialista em documentos e políticas em linguagem natural (FAQ, manuais). Use para perguntas que dependem de texto nos arquivos do volume faq_volume, não para consultas SQL agregadas nas metric views dos Genies.*
@@ -105,13 +105,13 @@ No campo **Instructions**, defina como o supervisor deve escolher o subagente. E
 
 ## Checklist rápido
 
-- [ ] Lab 3 concluído: dois Genie Spaces (inventário → `mvw_inventory`, vendas → `mvw_sales`) em `dbacademy.<seu_database>`.
-- [ ] Lab 4 concluído: Knowledge Assistant com fonte no volume **`faq_volume`** (`dbacademy.<schema_do_volume>.faq_volume`).
+- [ ] Lab 4 concluído: dois Genie Spaces (inventário → `mvw_inventory`, vendas → `mvw_sales`) em `dbacademy.<seu_database>`.
+- [ ] Lab 1 concluído: Knowledge Assistant com fonte no volume **`faq_volume`** (`dbacademy.<schema_do_volume>.faq_volume`).
 - [ ] Agents → **Supervisor Agent** → **Build**.
 - [ ] Nome e descrição do supervisor preenchidos.
 - [ ] Subagente 1: **Genie Space** (logística/inventário).
 - [ ] Subagente 2: **Genie Space** (vendas).
-- [ ] Subagente 3: **Agent endpoint** → Knowledge Assistant do Lab 4.
+- [ ] Subagente 3: **Agent endpoint** → Knowledge Assistant do Lab 1.
 - [ ] Descrições de cada subagente ajudam o roteamento; **Instructions** do supervisor definidas.
 - [ ] **Create Agent** → testes → permissões para Lab 6 / equipe.
 
