@@ -77,11 +77,6 @@ No campo **Instructions**, defina o comportamento. Exemplo:
 
 Neste treinamento, **não é necessário testar o assistente no chat neste laboratório** — a validação conversacional fica para **depois** (outro momento do curso ou integração no fluxo do Supervisor).
 
-### 5. Permissões e uso downstream
-
-- Por padrão, acesso restrito a autores/admins; conceda **Can Query** ou **Can Manage** conforme necessário para o Lab 5 e para colegas testarem.
-- Anote o **nome/identificador** do agente e, se precisar para integrações, consulte **See Agent status** (endpoint, detalhes).
-
 ---
 
 ## Checklist rápido
@@ -93,8 +88,7 @@ Neste treinamento, **não é necessário testar o assistente no chat neste labor
 - [ ] Nome e **Describe the content** da fonte preenchidos com contexto de negócio.
 - [ ] **Instructions** (recomendado) com tom, idioma e regras anti-alucinação.
 - [ ] **Create Agent** e aguardar sincronização.
-- [ ] Permissões ajustadas para quem for usar no Lab 5.
-- [ ] Identificador do agente anotado para o Supervisor.
+- [ ] Identificador do agente anotado para o Supervisor (quando disponível na UI).
 
 ---
 
