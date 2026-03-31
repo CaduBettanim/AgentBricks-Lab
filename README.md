@@ -6,10 +6,6 @@
 
 Usuários Databricks que desejam utilizar a plataforma para **construção de agentes de IA**, integrando dados governados (Unity Catalog), análise conversacional (Genie), Knowledge Assistant e solução multi-agent no Databricks.
 
-Repositório do laboratório **AgentBricks Lab**: preparação de dados e ativos no **Unity Catalog** com notebooks Databricks, uso de **Genie Spaces**, **Knowledge Assistant** e **solução multi-agent** no Databricks, com montagem e orquestração na interface **AgentBricks**.
-
-**Idioma:** Português (Brasil).
-
 ---
 
 ## Requisitos para participar
