@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="200" viewBox="0 0 920 200" role="img" aria-labelledby="title desc">
+  <title id="title">Databricks Criação de Agentes com AgentBricks</title>
+  <desc id="desc">Faixa do treinamento AgentBricks Lab</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1B1F3B"/>
+      <stop offset="100%" style="stop-color:#0D1117"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF3621"/>
+      <stop offset="100%" style="stop-color:#FF6B35"/>
+    </linearGradient>
+  </defs>
+  <rect width="920" height="200" fill="url(#bg)" rx="12"/>
+  <rect x="0" y="0" width="920" height="6" fill="url(#accent)" rx="12"/>
+  <text x="460" y="78" text-anchor="middle" fill="#F0F3FA" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="28" font-weight="700">Databricks</text>
+  <text x="460" y="118" text-anchor="middle" fill="#E8EAED" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="22" font-weight="600">Criação de Agentes com AgentBricks</text>
+  <text x="460" y="158" text-anchor="middle" fill="#9AA0A6" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15">Laboratório guiado · Unity Catalog · Genie · AgentBricks</text>
+</svg>
