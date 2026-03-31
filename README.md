@@ -2,7 +2,7 @@
 
 ![Faixa do treinamento — Databricks Criação de Agentes com AgentBricks](./assets/banner.png)
 
-Repositório do laboratório **AgentBricks Lab**: preparação de dados e ativos no Unity Catalog com notebooks Databricks, uso de **Genie Spaces** e montagem de agentes no **AgentBricks** (Knowledge Assistant e supervisor).
+Repositório do laboratório **AgentBricks Lab**: preparação de dados e ativos no **Unity Catalog** com notebooks Databricks, uso de **Genie Spaces**, **Knowledge Assistant** e **solução multi-agent** no Databricks, com montagem e orquestração na interface **AgentBricks**.
 
 **Idioma:** Português (Brasil).
 
@@ -10,7 +10,7 @@ Repositório do laboratório **AgentBricks Lab**: preparação de dados e ativos
 
 ## Público-alvo
 
-Usuários Databricks que desejam utilizar a plataforma para **construção de agentes de IA**, integrando dados governados (Unity Catalog), análise conversacional (Genie) e orquestração no AgentBricks.
+Usuários Databricks que desejam utilizar a plataforma para **construção de agentes de IA**, integrando dados governados (Unity Catalog), análise conversacional (Genie), Knowledge Assistant e solução multi-agent no Databricks.
 
 ---
 
