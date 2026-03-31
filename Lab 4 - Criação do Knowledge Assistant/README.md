@@ -21,22 +21,6 @@ Documentação oficial do produto: [Use Agent Bricks: Knowledge Assistant](https
 
 ---
 
-## Pré-requisitos do workspace
-
-Conforme a documentação da Databricks, o workspace deve atender aos requisitos do Agent Bricks (serverless, Unity Catalog, model serving, política de orçamento serverless, etc.). Resumo:
-
-| Requisito | Observação |
-|-----------|------------|
-| Unity Catalog | Habilitado. |
-| Serverless | Disponível (padrão em muitos workspaces com UC). |
-| Model Serving / foundation models | Acesso a modelos em UC (ex.: `system.ai`). |
-| Orçamento serverless | Política com valor não zero. |
-| Dados | Arquivos no volume **`faq_volume`** (tipos suportados: txt, pdf, md, ppt/pptx, doc/docx). Arquivos **> 50 MB** são ignorados na ingestão. Nomes que começam com `_` ou `.` são ignorados. |
-
-**Permissões:** você precisa de permissão para **ler** o volume (e, na criação do agente, permissões compatíveis com a criação de recursos do Agent Bricks no workspace).
-
----
-
 ## Passo a passo na interface
 
 ### 1. Abrir **Agents**
