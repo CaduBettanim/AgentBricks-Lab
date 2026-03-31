@@ -6,7 +6,7 @@ Este guia resume o que cada notebook faz e **como executar**, na ordem do treina
 
 ---
 
-## Pré-requisitos antes do notebook 01
+## Pré-requisitos antes do Lab 1
 
 1. Acesso ao workspace Databricks (link enviado pelo instrutor).
 2. Permissões no Unity Catalog: uso do catálogo `dbacademy`, criação de tabelas/views/funções no **seu** schema (`<seu_database>`).
@@ -19,7 +19,7 @@ CREATE SCHEMA IF NOT EXISTS dbacademy.<seu_database>;
 
 ---
 
-## 01 — `notebooks/01_generate_data/01_generate_data.ipynb` — Gerar dados
+## Lab 1 — `Lab 1 - Geração de Dados/01_generate_data.ipynb` — Gerar dados
 
 **Objetivo:** popular tabelas Delta de varejo (produtos, lojas, inventário, vendas) e criar **Metric Views** para inventário e vendas.
 
@@ -40,14 +40,14 @@ CREATE SCHEMA IF NOT EXISTS dbacademy.<seu_database>;
 
 ---
 
-## 02 — `notebooks/02_create_functions/02_create_functions.ipynb` — Funções no Unity Catalog
+## Lab 2 — `Lab 2 - Criação de Funções/02_create_function.ipynb` — Funções no Unity Catalog
 
 **Objetivo:** criar funções SQL reutilizáveis: busca de loja por ID e geocodificação via Python (Nominatim).
 
 **Como executar**
 
 1. Substitua **`<seu_database>`** pelo seu database em todo o notebook.
-2. **Dependência:** tabelas do notebook 01 já criadas (`dim_store` etc.).
+2. **Dependência:** tabelas do Lab 1 já criadas (`dim_store` etc.).
 3. Execute `CREATE OR REPLACE FUNCTION ... get_store_by_id` e teste com um `store_id` **válido** da sua base:
 
 ```sql
@@ -66,7 +66,7 @@ Substitua o ID no exemplo `get_store_by_id("...")` por um dos retornados.
 
 ---
 
-## 03_1 — `notebooks/03_1_genie_spaces/03_1_genie_spaces.ipynb` — Genie Spaces (conceito)
+## Lab 3 (1/2) — `Lab 3 - Criação de Salas Genie/03_1_genie_spaces.ipynb` — Genie Spaces (conceito)
 
 **Objetivo:** documentação e **instruções em texto** para criar dois espaços Genie na UI.
 
@@ -78,11 +78,11 @@ Substitua o ID no exemplo `get_store_by_id("...")` por um dos retornados.
    - **Dados:** aponte para as **Metric Views** `dbacademy.<seu_database>.mvw_inventory` e `dbacademy.<seu_database>.mvw_sales` (com o seu database já aplicado, ex.: `dbacademy.cbettanim.mvw_inventory`).
    - **Instruções do sistema:** copie/adapte o texto das células markdown (tom em português, foco em negócio).
 4. Use as **perguntas sugeridas** no notebook para testar cada espaço.
-5. **Anote os IDs dos espaços** (ou URLs); você precisará deles no passo de AgentBricks e possivelmente no notebook `notebooks/03_2_genie_tools/03_2_genie_tools.ipynb`.
+5. **Anote os IDs dos espaços** (ou URLs); você precisará deles no passo de AgentBricks e no notebook `Lab 3 - Criação de Salas Genie/03_2_genie_tools.ipynb`.
 
 ---
 
-## 03_2 — `notebooks/03_2_genie_tools/03_2_genie_tools.ipynb` — Função `_genie_query` e *wrapper*
+## Lab 3 (2/2) — `Lab 3 - Criação de Salas Genie/03_2_genie_tools.ipynb` — Função `_genie_query` e *wrapper*
 
 **Objetivo:** instalar no UC uma função Python que conversa com a API do Genie e um *wrapper* SQL (`chat_with_sales`) para uso como ferramenta.
 

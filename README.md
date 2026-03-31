@@ -47,27 +47,28 @@ AgentBricks-Lab/
 │   └── banner.svg            ← mesma arte em vetor (edição / outros usos)
 ├── docs/
 │   └── GUIA_NOTEBOOKS.md     ← passo a passo detalhado dos notebooks
-└── notebooks/
-    ├── 01_generate_data/
-    │   └── 01_generate_data.ipynb
-    ├── 02_create_functions/
-    │   └── 02_create_functions.ipynb
-    ├── 03_1_genie_spaces/
-    │   └── 03_1_genie_spaces.ipynb
-    └── 03_2_genie_tools/
-        └── 03_2_genie_tools.ipynb
+├── Lab 1 - Geração de Dados/
+│   └── 01_generate_data.ipynb
+├── Lab 2 - Criação de Funções/
+│   └── 02_create_function.ipynb
+└── Lab 3 - Criação de Salas Genie/
+    ├── 03_1_genie_spaces.ipynb
+    └── 03_2_genie_tools.ipynb
 ```
 
 ---
 
 ## Roteiro do treinamento
 
-### Parte 1 — Notebooks (ordem obrigatória)
+### Parte 1 — Laboratórios (ordem obrigatória)
 
-1. **`notebooks/01_generate_data/`** — `01_generate_data.ipynb`: gera tabelas de vendas/logística e **Metric Views** (`mvw_inventory`, `mvw_sales`) em `dbacademy.<seu_database>` (substitua pelo seu identificador).
-2. **`notebooks/02_create_functions/`** — `02_create_functions.ipynb`: cria funções UC (`get_store_by_id`, `geocode_address`).
-3. **`notebooks/03_1_genie_spaces/`** — `03_1_genie_spaces.ipynb`: orientação para criar **dois Genie Spaces** (logística/inventário e vendas) na interface, usando as metric views.
-4. **`notebooks/03_2_genie_tools/`** — `03_2_genie_tools.ipynb`: cria `_genie_query` e o *wrapper* `chat_with_sales`; exige configurar **host**, **token** e **ID do espaço Genie** conforme células SQL.
+**Lab 1 - Geração de Dados** — [`01_generate_data.ipynb`](./Lab%201%20-%20Geração%20de%20Dados/01_generate_data.ipynb): gera tabelas de vendas/logística e **Metric Views** (`mvw_inventory`, `mvw_sales`) em `dbacademy.<seu_database>` (substitua pelo seu identificador).
+
+**Lab 2 - Criação de Funções** — [`02_create_function.ipynb`](./Lab%202%20-%20Criação%20de%20Funções/02_create_function.ipynb): cria funções UC (`get_store_by_id`, `geocode_address`).
+
+**Lab 3 - Criação de Salas Genie** — na mesma pasta, execute em sequência:
+1. [`03_1_genie_spaces.ipynb`](./Lab%203%20-%20Criação%20de%20Salas%20Genie/03_1_genie_spaces.ipynb) — orientação para criar **dois Genie Spaces** (logística/inventário e vendas) na interface, usando as metric views.
+2. [`03_2_genie_tools.ipynb`](./Lab%203%20-%20Criação%20de%20Salas%20Genie/03_2_genie_tools.ipynb) — cria `_genie_query` e o *wrapper* `chat_with_sales`; exige configurar **host**, **token** e **ID do espaço Genie** conforme células SQL.
 
 Para comandos, validações e cuidados (IDs aleatórios, substituição de `store_id`, rede), use o **[Guia dos notebooks](./docs/GUIA_NOTEBOOKS.md)**.
 
@@ -75,7 +76,7 @@ Para comandos, validações e cuidados (IDs aleatórios, substituição de `stor
 
 5. **Knowledge Assistant** — No AgentBricks, crie um assistente de conhecimento apontando para o **volume** **`faq_lojas`** no catálogo **`dbacademy`** (caminho completo conforme definido no workspace, por exemplo `dbacademy.<schema_do_volume>.faq_lojas` ou estrutura equivalente do seu ambiente).
 6. **Supervisor** — No AgentBricks, configure um **supervisor** que utilize:
-   - os **dois Genie Spaces** criados no passo 3 (logística e vendas);
+   - os **dois Genie Spaces** criados no Lab 3 (logística e vendas);
    - o **Knowledge Assistant** do passo 5.
 
 Siga na UI as opções de seleção de ferramentas/espacos que o produto exibir na sua versão; o instrutor demonstrará o fluxo no dia do treinamento.
