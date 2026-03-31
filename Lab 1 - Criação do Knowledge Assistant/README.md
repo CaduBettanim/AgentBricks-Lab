@@ -2,7 +2,7 @@
 
 Este laboratório guia a criação de um **Agent Bricks: Knowledge Assistant** na interface do Databricks, usando documentos em um **Unity Catalog volume** como fonte de conhecimento.
 
-> **Comece por aqui.** A criação e a sincronização do Knowledge Assistant podem levar **muito tempo**. Dispare este laboratório **primeiro** e, enquanto o agente processa, siga os [Labs 2](../Lab%202%20-%20Geração%20de%20Dados/) (dados), [Lab 3](../Lab%203%20-%20Criação%20de%20Funções/) (funções) e [Lab 4](../Lab%204%20-%20Criação%20de%20Salas%20Genie/) (Genie). No [Lab 5](../Lab%205%20-%20Criação%20do%20Supervisor/README.md), você precisará do endpoint deste assistente **já criado** e dos dois Genie Spaces do Lab 4.
+> **Comece por aqui.** A criação e a sincronização do Knowledge Assistant podem levar **muito tempo**. Dispare este laboratório **primeiro** e, enquanto o agente processa, siga o [Lab 2](../Lab%202%20-%20Geração%20de%20Dados/README.md) (carga CSV), o [**Lab 2 Backup**](../Lab%202%20Backup%20-%20Geração%20de%20Dados/README.md) (dados e metric views para AgentBricks), [Lab 3](../Lab%203%20-%20Criação%20de%20Funções/) (funções) e [Lab 4](../Lab%204%20-%20Criação%20de%20Salas%20Genie/) (Genie). No [Lab 5](../Lab%205%20-%20Criação%20do%20Supervisor/README.md), você precisará do endpoint deste assistente **já criado** e dos dois Genie Spaces do Lab 4.
 
 **Referência nos materiais (alunos):** catálogo **`dbacademy`**, volume **`faq_volume`**, caminho lógico:
 

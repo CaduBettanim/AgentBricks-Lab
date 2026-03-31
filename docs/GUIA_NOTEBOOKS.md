@@ -7,7 +7,8 @@ Este guia acompanha os notebooks e o material em **ordem recomendada**.
 ## Ordem recomendada
 
 1. **[Lab 1 — Knowledge Assistant](../Lab%201%20-%20Criação%20do%20Knowledge%20Assistant/README.md)** (só interface) — **inicie primeiro**; o provisionamento é lento.  
-2. **Lab 2 — dados** — notebook `Lab 2 - Geração de Dados/01_generate_data.ipynb` (paralelo ou após disparar o Lab 1).  
+2. **Lab 2 — CSV** — [**README do Lab 2**](../Lab%202%20-%20Geração%20de%20Dados/README.md) + `lab02_01_carga_csv.ipynb` (paralelo ao Lab 1, se desejar).  
+2b. **Lab 2 Backup — dados AgentBricks** — [**README**](../Lab%202%20Backup%20-%20Geração%20de%20Dados/README.md) + `01_generate_data.ipynb` — **antes do Lab 3** (metric views e tabelas dos labs seguintes).  
 3. **Lab 3 — funções** — `Lab 3 - Criação de Funções/02_create_function.ipynb`.  
 4. **Lab 4 — Genie** — [**README do Lab 4**](../Lab%204%20-%20Criação%20de%20Salas%20Genie/README.md) (página única com todo o conteúdo); notebooks `03_1` / `03_2` são opcionais.  
 5. **[Lab 5 — Supervisor](../Lab%205%20-%20Criação%20do%20Supervisor/README.md)** — exige **Lab 1** (endpoint pronto) + dois Genies do **Lab 4**.  
@@ -17,11 +18,11 @@ Este guia acompanha os notebooks e o material em **ordem recomendada**.
 
 ## Lab 1 — Knowledge Assistant (somente README)
 
-Não há notebook nesta pasta. Siga o [**README do Lab 1**](../Lab%201%20-%20Criação%20do%20Knowledge%20Assistant/README.md). **Dispare este passo antes** ou em paralelo ao início do Lab 2.
+Não há notebook nesta pasta. Siga o [**README do Lab 1**](../Lab%201%20-%20Criação%20do%20Knowledge%20Assistant/README.md). **Dispare este passo antes** ou em paralelo ao início do Lab 2 (CSV) / Lab 2 Backup (dados AgentBricks).
 
 ---
 
-## Pré-requisitos antes dos notebooks (Labs 2–4)
+## Pré-requisitos antes dos notebooks (Labs 2, 2 Backup e 3–4)
 
 1. Acesso ao workspace Databricks (link do instrutor).
 2. Permissões no catálogo `dbacademy` e no seu schema `<seu_database>`.
@@ -34,7 +35,17 @@ CREATE SCHEMA IF NOT EXISTS dbacademy.<seu_database>;
 
 ---
 
-## Lab 2 — `Lab 2 - Geração de Dados/01_generate_data.ipynb` — Gerar dados
+## Lab 2 — `Lab 2 - Geração de Dados/` — Carga CSV (notebook)
+
+**Documento:** [**README do Lab 2**](../Lab%202%20-%20Geração%20de%20Dados/README.md) (fluxo de importação por URL, alinhado ao [lab_sql LAB 02](https://github.com/CaduBettanim/lab_sql/blob/main/02_LAB_Notebook/README.md)).
+
+**Notebook:** `lab02_01_carga_csv.ipynb` — CSV públicos → tabelas Delta em `dbacademy.<seu_database>`.
+
+**Observação:** este lab **não** cria `mvw_inventory` / `mvw_sales`. Para os Labs 3–6, use o **Lab 2 Backup** abaixo.
+
+---
+
+## Lab 2 Backup — `Lab 2 Backup - Geração de Dados/01_generate_data.ipynb` — Dados AgentBricks
 
 **Objetivo:** popular tabelas Delta e **Metric Views** (`mvw_inventory`, `mvw_sales`).
 
@@ -55,7 +66,7 @@ CREATE SCHEMA IF NOT EXISTS dbacademy.<seu_database>;
 **Como executar**
 
 1. Substitua **`<seu_database>`**.
-2. Dependência: tabelas do **Lab 2**.
+2. Dependência: tabelas e metric views do **Lab 2 Backup**.
 3. Teste `get_store_by_id` com `store_id` real: `SELECT store_id FROM dbacademy.<seu_database>.dim_store LIMIT 5;`
 
 ---

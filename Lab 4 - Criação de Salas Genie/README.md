@@ -2,7 +2,7 @@
 
 Este documento **reúne o conteúdo pedagógico** dos arquivos `03_1_genie_spaces.ipynb` e `03_2_genie_tools.ipynb`. Use-o como **guia principal** do laboratório; os notebooks podem ser mantidos só como cópia executável ou removidos no futuro, conforme decisão do curso.
 
-**Pré-requisito:** Labs [2](../Lab%202%20-%20Geração%20de%20Dados/) (tabelas e **Metric Views** `mvw_inventory` e `mvw_sales` em `dbacademy.<seu_database>`) e [3](../Lab%203%20-%20Criação%20de%20Funções/) (opcional para o fluxo mínimo do Genie na UI).
+**Pré-requisito:** [**Lab 2 Backup**](../Lab%202%20Backup%20-%20Geração%20de%20Dados/) (tabelas e **Metric Views** `mvw_inventory` e `mvw_sales` em `dbacademy.<seu_database>`) e [Lab 3](../Lab%203%20-%20Criação%20de%20Funções/) (opcional para o fluxo mínimo do Genie na UI). O [Lab 2 principal (CSV)](../Lab%202%20-%20Geração%20de%20Dados/README.md) não cria essas metric views.
 
 ---
 
@@ -30,7 +30,7 @@ Detalhes: [README principal — Seu database](../README.md#seu-database-identifi
 |-------|--------|
 | **Objetivo** | Criar **dois** Genie Spaces (logística e vendas) |
 | **Runtime sugerido** | DBR 16.4 LTS (quando usar notebook auxiliar) |
-| **Dados** | Metric views `dbacademy.<seu_database>.mvw_inventory` e `dbacademy.<seu_database>.mvw_sales` ([Lab 2](../Lab%202%20-%20Geração%20de%20Dados/)) |
+| **Dados** | Metric views `dbacademy.<seu_database>.mvw_inventory` e `dbacademy.<seu_database>.mvw_sales` ([Lab 2 Backup](../Lab%202%20Backup%20-%20Geração%20de%20Dados/)) |
 
 ### Material visual (opcional)
 
@@ -69,7 +69,7 @@ Detalhes: [README principal — Seu database](../README.md#seu-database-identifi
 - Qual era o estoque da capa de celular resistente em dezembro de 2023?
 - Você pode me dar informações sobre a loja com id `4823349147981451781`?
 
-  > *Os IDs de loja são gerados aleatoriamente no [Lab 2](../Lab%202%20-%20Geração%20de%20Dados/). Use um `store_id` real da sua tabela, por exemplo:* `SELECT store_id FROM dbacademy.<seu_database>.dim_store LIMIT 5;`
+  > *Os IDs de loja são gerados aleatoriamente no [Lab 2 Backup](../Lab%202%20Backup%20-%20Geração%20de%20Dados/). Use um `store_id` real da sua tabela, por exemplo:* `SELECT store_id FROM dbacademy.<seu_database>.dim_store LIMIT 5;`
 
 - Quais produtos têm um estoque inferior a 500 unidades?
 

@@ -27,7 +27,7 @@ Nos notebooks, o placeholder **`<seu_database>`** deve ser substituído pelo seu
 | Requisito | Detalhes |
 |-----------|----------|
 | Acesso ao workspace | Cada participante recebe o **link do ambiente** (ex.: 1 dia antes do treinamento). Conta com permissão de login e uso de notebooks. |
-| Unity Catalog | Catálogo **`dbacademy`** — volume **`faq_volume`** ([Lab 1](./Lab%201%20-%20Criação%20do%20Knowledge%20Assistant/README.md)) e schema pessoal **`<seu_database>`** ([Labs 2–4](./docs/GUIA_NOTEBOOKS.md)). Ajuste se o instrutor fornecer nomes diferentes. |
+| Unity Catalog | Catálogo **`dbacademy`** — volume **`faq_volume`** ([Lab 1](./Lab%201%20-%20Criação%20do%20Knowledge%20Assistant/README.md)) e schema pessoal **`<seu_database>`** ([Labs 2–4](./docs/GUIA_NOTEBOOKS.md); para metric views dos Labs 3–6 use o [**Lab 2 Backup**](./Lab%202%20Backup%20-%20Geração%20de%20Dados/README.md)). Ajuste se o instrutor fornecer nomes diferentes. |
 | Permissões | `USAGE` no catálogo; `CREATE` e `SELECT` no **seu** schema (`dbacademy.<seu_database>`); permissões para criar **Genie Spaces** e acessar **AgentBricks** conforme política da conta. |
 | Runtime | **DBR 16.4 LTS** ou versão indicada pelo instrutor (anotada nos notebooks). |
 | Navegador | Navegador atualizado para UI do Databricks, Genie e AgentBricks. |
@@ -50,7 +50,11 @@ AgentBricks-Lab/
 ├── Lab 1 - Criação do Knowledge Assistant/
 │   └── README.md             ← inicie por aqui (provisionamento lento)
 ├── Lab 2 - Geração de Dados/
-│   └── 01_generate_data.ipynb
+│   ├── README.md
+│   └── lab02_01_carga_csv.ipynb   ← carga CSV (estilo lab_sql)
+├── Lab 2 Backup - Geração de Dados/
+│   ├── README.md
+│   └── 01_generate_data.ipynb     ← metric views p/ Labs 3–6
 ├── Lab 3 - Criação de Funções/
 │   └── 02_create_function.ipynb
 ├── Lab 4 - Criação de Salas Genie/
@@ -66,13 +70,15 @@ AgentBricks-Lab/
 
 ## Roteiro do treinamento
 
-**Ordem recomendada:** comece pelo **Lab 1** (Knowledge Assistant demora a provisionar). Em paralelo ou em seguida, execute os **Labs 2 → 3 → 4** (notebooks). O **Lab 5** exige **Lab 1** concluído (endpoint) e **Lab 4** concluído (dois Genies). Detalhes no **[Guia dos laboratórios](./docs/GUIA_NOTEBOOKS.md)**.
+**Ordem recomendada:** comece pelo **Lab 1** (Knowledge Assistant demora a provisionar). O **Lab 2** (CSV) pode correr em paralelo. Para a trilha **AgentBricks** (Labs 3 → 4 → 5), execute também o [**Lab 2 Backup**](./Lab%202%20Backup%20-%20Geração%20de%20Dados/README.md) (`01_generate_data.ipynb`). O **Lab 5** exige **Lab 1** concluído (endpoint) e **Lab 4** concluído (dois Genies). Detalhes no **[Guia dos laboratórios](./docs/GUIA_NOTEBOOKS.md)**.
 
 ### Laboratórios
 
 **Lab 1 - Criação do Knowledge Assistant** — [**README**](./Lab%201%20-%20Criação%20do%20Knowledge%20Assistant/README.md): **Agents** → **Knowledge Assistant** → volume **`faq_volume`** em **`dbacademy.<schema_do_volume>.faq_volume`**. *Primeiro da fila por causa do tempo de criação/sincronização.*
 
-**Lab 2 - Geração de Dados** — [`01_generate_data.ipynb`](./Lab%202%20-%20Geração%20de%20Dados/01_generate_data.ipynb): tabelas e **Metric Views** `mvw_inventory` / `mvw_sales` em `dbacademy.<seu_database>`.
+**Lab 2 - Geração de Dados** — [**README**](./Lab%202%20-%20Geração%20de%20Dados/README.md) + [`lab02_01_carga_csv.ipynb`](./Lab%202%20-%20Geração%20de%20Dados/lab02_01_carga_csv.ipynb): importação de notebook, carga de **CSV** em tabelas Delta (conteúdo alinhado ao [LAB 02 — lab_sql](https://github.com/CaduBettanim/lab_sql/blob/main/02_LAB_Notebook/README.md)).
+
+**Lab 2 Backup - Geração de Dados** — [**README**](./Lab%202%20Backup%20-%20Geração%20de%20Dados/README.md) + [`01_generate_data.ipynb`](./Lab%202%20Backup%20-%20Geração%20de%20Dados/01_generate_data.ipynb): dados sintéticos e **Metric Views** `mvw_inventory` / `mvw_sales` — **necessário** para Labs 3, 4, 5 e 6.
 
 **Lab 3 - Criação de Funções** — [`02_create_function.ipynb`](./Lab%203%20-%20Criação%20de%20Funções/02_create_function.ipynb): funções UC (`get_store_by_id`, `geocode_address`).
 
