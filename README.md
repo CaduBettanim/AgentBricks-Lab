@@ -8,13 +8,27 @@ Usuários Databricks que desejam utilizar a plataforma para **construção de ag
 
 ---
 
+## Seu database (identificador pessoal)
+
+Cada participante utiliza um **database** próprio. No **Unity Catalog**, isso corresponde ao **nome do schema** dentro do catálogo **`dbacademy`**.
+
+| Regra | Exemplo |
+|-------|---------|
+| **Primeira letra do nome** + **sobrenome**, em **minúsculas**, sem espaços | Aluno **Carlos Bettanim** → database **`cbettanim`** |
+
+**Anote esse valor** e use-o em todo o treinamento (notebooks, Genie, referências a tabelas e views).
+
+Nos notebooks, o placeholder **`<seu_database>`** deve ser substituído pelo seu identificador **antes de executar** qualquer célula: com os sinais `<` e `>`, o texto não é um nome válido no Unity Catalog. Depois da troca, use referências como **`dbacademy.cbettanim`** (exemplo). No Databricks, use *Edit → Find and Replace* no notebook para substituir `<seu_database>` de uma vez.
+
+---
+
 ## Requisitos para participar
 
 | Requisito | Detalhes |
 |-----------|----------|
 | Acesso ao workspace | Cada participante recebe o **link do ambiente** (ex.: 1 dia antes do treinamento). Conta com permissão de login e uso de notebooks. |
-| Unity Catalog | Catálogo **`dbacademy`** utilizado neste roteiro (volume `faq_lojas` e schema de workshop). Ajuste se o instrutor fornecer nomes diferentes. |
-| Permissões | `USAGE` no catálogo; `CREATE` e `SELECT` no schema de workshop (`workshop_agentbricks`); permissões para criar **Genie Spaces** e acessar **AgentBricks** conforme política da conta. |
+| Unity Catalog | Catálogo **`dbacademy`** utilizado neste roteiro (volume `faq_lojas` e o **seu** schema pessoal). Ajuste se o instrutor fornecer nomes diferentes. |
+| Permissões | `USAGE` no catálogo; `CREATE` e `SELECT` no **seu** schema (`dbacademy.<seu_database>`); permissões para criar **Genie Spaces** e acessar **AgentBricks** conforme política da conta. |
 | Runtime | **DBR 16.4 LTS** ou versão indicada pelo instrutor (anotada nos notebooks). |
 | Navegador | Navegador atualizado para UI do Databricks, Genie e AgentBricks. |
 | Rede | Para o notebook de funções: possível necessidade de **HTTPS de saída** para geocodificação (OpenStreetMap Nominatim). Redes restritas podem exigir exceção. |
@@ -46,7 +60,7 @@ AgentBricks-Lab/
 
 ### Parte 1 — Notebooks (ordem obrigatória)
 
-1. **`01_generate_data.ipynb`** — Gera tabelas de vendas/logística e **Metric Views** (`mvw_inventory`, `mvw_sales`) em `dbacademy.workshop_agentbricks`.
+1. **`01_generate_data.ipynb`** — Gera tabelas de vendas/logística e **Metric Views** (`mvw_inventory`, `mvw_sales`) em `dbacademy.<seu_database>` (substitua pelo seu identificador).
 2. **`02_create_functions.ipynb`** — Cria funções UC (`get_store_by_id`, `geocode_address`).
 3. **`03_1_genie_spaces.ipynb`** — Orientação para criar **dois Genie Spaces** (logística/inventário e vendas) na interface, usando as metric views.
 4. **`03_2_genie_tools.ipynb`** — Cria `_genie_query` e o *wrapper* `chat_with_sales`; exige configurar **host**, **token** e **ID do espaço Genie** conforme células SQL.
@@ -64,15 +78,16 @@ Siga na UI as opções de seleção de ferramentas/espacos que o produto exibir 
 
 ---
 
-## Catálogo e schema padrão
+## Catálogo e database (schema) pessoal
 
-| Objeto | Valor padrão neste repositório |
-|--------|--------------------------------|
+| Objeto | Valor |
+|--------|--------|
 | Catálogo UC (tabelas/funções do lab) | `dbacademy` |
-| Schema do lab | `workshop_agentbricks` |
-| Volume de FAQ (Knowledge Assistant) | `faq_lojas` (catálogo `dbacademy`) |
+| Database / schema do participante | **`<seu_database>`** — primeira letra do nome + sobrenome em minúsculas (ex.: `cbettanim`) |
+| Caminho completo dos objetos do lab | `dbacademy.<seu_database>` (ex.: `dbacademy.cbettanim`) |
+| Volume de FAQ (Knowledge Assistant) | `faq_lojas` no catálogo `dbacademy` (caminho exato conforme workspace) |
 
-Se o ambiente do cliente usar outros nomes, altere os notebooks (busca por `dbacademy.workshop_agentbricks`) ou peça um notebook “parametrizado” ao mantenedor.
+Se o instrutor definir outra convenção de nome, ajuste os notebooks com *Find and Replace* em `<seu_database>`.
 
 ---
 
@@ -110,7 +125,7 @@ Se o repositório remoto já tiver commits, use `git pull` com estratégia de me
 
 ## O que ainda pode ser alinhado com o instrutor (opcional)
 
-- Nome exato do **schema** que hospeda o volume `faq_lojas` no catálogo `dbacademy`.
+- Nome exato do **schema** que hospeda o volume `faq_lojas` no catálogo `dbacademy` (pode ser distinto do `<seu_database>` do lab).
 - Versão exata do **AgentBricks** e nomes de menus se a UI mudar entre regiões/versões.
 - Política de **tokens** e **segredos** no workspace do cliente.
 - Se a geocodificação externa for proibida, um exercício alternativo sem `geocode_address`.
