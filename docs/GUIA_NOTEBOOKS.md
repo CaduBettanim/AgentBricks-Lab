@@ -9,7 +9,7 @@ Este guia acompanha os notebooks e o material em **ordem recomendada**.
 1. **[Lab 1 — Knowledge Assistant](../Lab%201%20-%20Criação%20do%20Knowledge%20Assistant/README.md)** (só interface) — **inicie primeiro**; o provisionamento é lento.  
 2. **Lab 2 — dados** — notebook `Lab 2 - Geração de Dados/01_generate_data.ipynb` (paralelo ou após disparar o Lab 1).  
 3. **Lab 3 — funções** — `Lab 3 - Criação de Funções/02_create_function.ipynb`.  
-4. **Lab 4 — Genie** — `Lab 4 - Criação de Salas Genie/` (`03_1` e `03_2`).  
+4. **Lab 4 — Genie** — [**README do Lab 4**](../Lab%204%20-%20Criação%20de%20Salas%20Genie/README.md) (página única com todo o conteúdo); notebooks `03_1` / `03_2` são opcionais.  
 5. **[Lab 5 — Supervisor](../Lab%205%20-%20Criação%20do%20Supervisor/README.md)** — exige **Lab 1** (endpoint pronto) + dois Genies do **Lab 4**.  
 6. **Lab 6 — App** — pasta `Lab 6 - Criação do App/`.
 
@@ -60,24 +60,14 @@ CREATE SCHEMA IF NOT EXISTS dbacademy.<seu_database>;
 
 ---
 
-## Lab 4 (1/2) — `Lab 4 - Criação de Salas Genie/03_1_genie_spaces.ipynb` — Genie Spaces
+## Lab 4 — Genie Spaces + funções UC (página única)
 
-**Objetivo:** instruções para criar **dois** Genie Spaces (inventário / vendas) na UI.
+**Documento principal:** [**`Lab 4 - Criação de Salas Genie/README.md`**](../Lab%204%20-%20Criação%20de%20Salas%20Genie/README.md) — inclui:
 
-**Como executar**
+- **Parte A:** texto para colar nas instruções dos dois Genie Spaces (`mvw_inventory` / `mvw_sales`), perguntas de teste e resumo de fluxo na UI.
+- **Parte B:** SQL completo de `_genie_query` (Python no UC) e `chat_with_sales` (placeholders `host`, `token`, `genie_id`).
 
-1. Use `dbacademy.<seu_database>.mvw_inventory` e `mvw_sales`.
-2. Anote IDs dos espaços para o **Lab 5** e para `03_2_genie_tools.ipynb`.
-
----
-
-## Lab 4 (2/2) — `Lab 4 - Criação de Salas Genie/03_2_genie_tools.ipynb` — Genie como ferramenta
-
-**Objetivo:** `_genie_query` e `chat_with_sales`.
-
-**Como executar**
-
-1. Substitua **`<seu_database>`**, `host`, `token` e `genie_id` conforme o notebook.
+**Notebooks** (`03_1_genie_spaces.ipynb`, `03_2_genie_tools.ipynb`) repetem o mesmo conteúdo em células; use só se preferir executar no Databricks como `.ipynb`.
 
 ---
 

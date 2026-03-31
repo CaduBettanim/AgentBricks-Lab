@@ -54,6 +54,7 @@ AgentBricks-Lab/
 ├── Lab 3 - Criação de Funções/
 │   └── 02_create_function.ipynb
 ├── Lab 4 - Criação de Salas Genie/
+│   ├── README.md             ← página de treinamento (conteúdo dos 2 notebooks)
 │   ├── 03_1_genie_spaces.ipynb
 │   └── 03_2_genie_tools.ipynb
 ├── Lab 5 - Criação do Supervisor/
@@ -75,9 +76,7 @@ AgentBricks-Lab/
 
 **Lab 3 - Criação de Funções** — [`02_create_function.ipynb`](./Lab%203%20-%20Criação%20de%20Funções/02_create_function.ipynb): funções UC (`get_store_by_id`, `geocode_address`).
 
-**Lab 4 - Criação de Salas Genie** — pasta [`Lab 4 - Criação de Salas Genie/`](./Lab%204%20-%20Criação%20de%20Salas%20Genie/):
-1. [`03_1_genie_spaces.ipynb`](./Lab%204%20-%20Criação%20de%20Salas%20Genie/03_1_genie_spaces.ipynb) — dois Genie Spaces (logística e vendas).
-2. [`03_2_genie_tools.ipynb`](./Lab%204%20-%20Criação%20de%20Salas%20Genie/03_2_genie_tools.ipynb) — `_genie_query` e `chat_with_sales` (host, token, genie_id).
+**Lab 4 - Criação de Salas Genie** — guia principal: [**README do Lab 4**](./Lab%204%20-%20Criação%20de%20Salas%20Genie/README.md) (instruções Genie na UI, textos para colar, SQL `_genie_query` / `chat_with_sales`). Notebooks opcionais: [`03_1_genie_spaces.ipynb`](./Lab%204%20-%20Criação%20de%20Salas%20Genie/03_1_genie_spaces.ipynb), [`03_2_genie_tools.ipynb`](./Lab%204%20-%20Criação%20de%20Salas%20Genie/03_2_genie_tools.ipynb).
 
 **Lab 5 - Criação do Supervisor** — [**README**](./Lab%205%20-%20Criação%20do%20Supervisor/README.md): **Supervisor Agent** com **dois Genies (Lab 4)** + **Knowledge Assistant (Lab 1)**.
 
