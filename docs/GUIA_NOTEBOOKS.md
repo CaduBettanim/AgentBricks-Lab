@@ -109,7 +109,7 @@ Substitua o ID no exemplo `get_store_by_id("...")` por um dos retornados.
 Após o Lab 3, siga as pastas na raiz do repositório (conteúdo em evolução):
 
 1. **Lab 4 - Criação do Knowledge Assistant** — volume **`faq_volume`** no catálogo **`dbacademy`** (`dbacademy.<schema_do_volume>.faq_volume`). Passo a passo: [README do Lab 4](../Lab%204%20-%20Criação%20do%20Knowledge%20Assistant/README.md).
-2. **Lab 5 - Criação do Supervisor** — dois Genie Spaces (Lab 3) + Knowledge Assistant (Lab 4).
+2. **Lab 5 - Criação do Supervisor** — Supervisor Agent com dois Genie Spaces (Lab 3) + endpoint do Knowledge Assistant (Lab 4). Passo a passo: [README do Lab 5](../Lab%205%20-%20Criação%20do%20Supervisor/README.md).
 3. **Lab 6 - Criação do App** — aplicativo do treinamento.
 
 O roteiro completo está no [README](../README.md) (seção *Roteiro do treinamento*).

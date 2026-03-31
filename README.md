@@ -57,6 +57,7 @@ AgentBricks-Lab/
 ├── Lab 4 - Criação do Knowledge Assistant/
 │   └── README.md             ← passo a passo Knowledge Assistant + UC volume
 ├── Lab 5 - Criação do Supervisor/
+│   └── README.md             ← passo a passo Supervisor + Genies + Knowledge Assistant
 └── Lab 6 - Criação do App/
 ```
 
@@ -80,7 +81,7 @@ Para comandos, validações e cuidados (IDs aleatórios, substituição de `stor
 
 **Lab 4 - Criação do Knowledge Assistant** — siga o [**README do Lab 4**](./Lab%204%20-%20Criação%20do%20Knowledge%20Assistant/README.md): na UI **Agents** → **Knowledge Assistant**, criar o assistente com fonte **UC Files** no volume **`faq_volume`** do catálogo **`dbacademy`** (`dbacademy.<schema_do_volume>.faq_volume`). *No ambiente do instrutor o volume pode estar em outro catálogo; o material padroniza `dbacademy` para os alunos.*
 
-**Lab 5 - Criação do Supervisor** — pasta [`Lab 5 - Criação do Supervisor/`](./Lab%205%20-%20Criação%20do%20Supervisor/): no AgentBricks, configurar um **supervisor** que utilize os **dois Genie Spaces** do Lab 3 (logística e vendas) e o **Knowledge Assistant** do Lab 4. *Material detalhado será adicionado nesta pasta.*
+**Lab 5 - Criação do Supervisor** — siga o [**README do Lab 5**](./Lab%205%20-%20Criação%20do%20Supervisor/README.md): **Agents** → **Supervisor Agent** → **Build**; adicione **dois Genie Spaces** (inventário `mvw_inventory` e vendas `mvw_sales` em `dbacademy.<seu_database>`, [Lab 3](./Lab%203%20-%20Criação%20de%20Salas%20Genie/)) e um **Agent endpoint** com o **Knowledge Assistant** do [Lab 4](./Lab%204%20-%20Criação%20do%20Knowledge%20Assistant/README.md).
 
 **Lab 6 - Criação do App** — pasta [`Lab 6 - Criação do App/`](./Lab%206%20-%20Criação%20do%20App/): criação/publicação do aplicativo associado ao fluxo do treinamento. *Material detalhado será adicionado nesta pasta.*
 
