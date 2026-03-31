@@ -1,6 +1,6 @@
 # Databricks — Criação de Agentes com AgentBricks
 
-![Faixa do treinamento](./assets/banner.svg)
+![Faixa do treinamento — Databricks Criação de Agentes com AgentBricks](./assets/banner.png)
 
 Repositório do laboratório **AgentBricks Lab**: preparação de dados e ativos no Unity Catalog com notebooks Databricks, uso de **Genie Spaces** e montagem de agentes no **AgentBricks** (Knowledge Assistant e supervisor).
 
@@ -35,7 +35,8 @@ Usuários Databricks que desejam utilizar a plataforma para **construção de ag
 AgentBricks-Lab/
 ├── README.md                 ← você está aqui
 ├── assets/
-│   └── banner.svg            ← identidade visual do treinamento
+│   ├── banner.png            ← faixa do treinamento (README no GitHub usa PNG)
+│   └── banner.svg            ← mesma arte em vetor (edição / outros usos)
 ├── docs/
 │   └── GUIA_NOTEBOOKS.md     ← passo a passo detalhado dos notebooks
 └── notebooks/
@@ -90,7 +91,7 @@ Se o ambiente do cliente usar outros nomes, altere os notebooks (busca por `dbac
 
 ## Créditos e material visual
 
-Os notebooks incluem imagens do repositório [Databricks-BR/workshop_agents](https://github.com/Databricks-BR/workshop_agents) (cabeçalhos e diagramas). O banner SVG deste treinamento é específico do **AgentBricks Lab**.
+Os notebooks incluem imagens do repositório [Databricks-BR/workshop_agents](https://github.com/Databricks-BR/workshop_agents) (cabeçalhos e diagramas). O banner deste treinamento é específico do **AgentBricks Lab** (`banner.png` / `banner.svg`). O README referencia **PNG** porque o GitHub em geral **não renderiza SVG** em `![alt](url)` no README do repositório (política de segurança contra scripts embutidos).
 
 ---
 
