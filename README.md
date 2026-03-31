@@ -27,7 +27,7 @@ Nos notebooks, o placeholder **`<seu_database>`** deve ser substituído pelo seu
 | Requisito | Detalhes |
 |-----------|----------|
 | Acesso ao workspace | Cada participante recebe o **link do ambiente** (ex.: 1 dia antes do treinamento). Conta com permissão de login e uso de notebooks. |
-| Unity Catalog | Catálogo **`dbacademy`** utilizado neste roteiro (volume `faq_lojas` e o **seu** schema pessoal). Ajuste se o instrutor fornecer nomes diferentes. |
+| Unity Catalog | Catálogo **`dbacademy`** utilizado neste roteiro (volume **`faq_volume`** para o Lab 4 e o **seu** schema pessoal `<seu_database>` nos notebooks). Ajuste se o instrutor fornecer nomes diferentes. |
 | Permissões | `USAGE` no catálogo; `CREATE` e `SELECT` no **seu** schema (`dbacademy.<seu_database>`); permissões para criar **Genie Spaces** e acessar **AgentBricks** conforme política da conta. |
 | Runtime | **DBR 16.4 LTS** ou versão indicada pelo instrutor (anotada nos notebooks). |
 | Navegador | Navegador atualizado para UI do Databricks, Genie e AgentBricks. |
@@ -55,6 +55,7 @@ AgentBricks-Lab/
 │   ├── 03_1_genie_spaces.ipynb
 │   └── 03_2_genie_tools.ipynb
 ├── Lab 4 - Criação do Knowledge Assistant/
+│   └── README.md             ← passo a passo Knowledge Assistant + UC volume
 ├── Lab 5 - Criação do Supervisor/
 └── Lab 6 - Criação do App/
 ```
@@ -77,7 +78,7 @@ Para comandos, validações e cuidados (IDs aleatórios, substituição de `stor
 
 ### Parte 2 — AgentBricks e app (interface)
 
-**Lab 4 - Criação do Knowledge Assistant** — pasta [`Lab 4 - Criação do Knowledge Assistant/`](./Lab%204%20-%20Criação%20do%20Knowledge%20Assistant/): no AgentBricks, criar assistente de conhecimento apontando para o **volume** **`faq_lojas`** no catálogo **`dbacademy`** (caminho completo conforme o workspace, ex.: `dbacademy.<schema_do_volume>.faq_lojas`). *Material detalhado será adicionado nesta pasta.*
+**Lab 4 - Criação do Knowledge Assistant** — siga o [**README do Lab 4**](./Lab%204%20-%20Criação%20do%20Knowledge%20Assistant/README.md): na UI **Agents** → **Knowledge Assistant**, criar o assistente com fonte **UC Files** no volume **`faq_volume`** do catálogo **`dbacademy`** (`dbacademy.<schema_do_volume>.faq_volume`). *No ambiente do instrutor o volume pode estar em outro catálogo; o material padroniza `dbacademy` para os alunos.*
 
 **Lab 5 - Criação do Supervisor** — pasta [`Lab 5 - Criação do Supervisor/`](./Lab%205%20-%20Criação%20do%20Supervisor/): no AgentBricks, configurar um **supervisor** que utilize os **dois Genie Spaces** do Lab 3 (logística e vendas) e o **Knowledge Assistant** do Lab 4. *Material detalhado será adicionado nesta pasta.*
 
@@ -94,7 +95,7 @@ Siga na UI as opções que o produto exibir na sua versão; o instrutor demonstr
 | Catálogo UC (tabelas/funções do lab) | `dbacademy` |
 | Database / schema do participante | **`<seu_database>`** — primeira letra do nome + sobrenome em minúsculas (ex.: `cbettanim`) |
 | Caminho completo dos objetos do lab | `dbacademy.<seu_database>` (ex.: `dbacademy.cbettanim`) |
-| Volume de FAQ (Knowledge Assistant) | `faq_lojas` no catálogo `dbacademy` (caminho exato conforme workspace) |
+| Volume de FAQ (Knowledge Assistant) | **`faq_volume`** no catálogo **`dbacademy`** — caminho `dbacademy.<schema_do_volume>.faq_volume` (veja [Lab 4](./Lab%204%20-%20Criação%20do%20Knowledge%20Assistant/README.md)) |
 
 Se o instrutor definir outra convenção de nome, ajuste os notebooks com *Find and Replace* em `<seu_database>`.
 
@@ -134,7 +135,7 @@ Se o repositório remoto já tiver commits, use `git pull` com estratégia de me
 
 ## O que ainda pode ser alinhado com o instrutor (opcional)
 
-- Nome exato do **schema** que hospeda o volume `faq_lojas` no catálogo `dbacademy` (pode ser distinto do `<seu_database>` do lab).
+- Nome exato do **schema** que hospeda o volume **`faq_volume`** no catálogo `dbacademy` (pode ser distinto do `<seu_database>` dos Labs 1–3).
 - Versão exata do **AgentBricks** e nomes de menus se a UI mudar entre regiões/versões.
 - Política de **tokens** e **segredos** no workspace do cliente.
 - Se a geocodificação externa for proibida, um exercício alternativo sem `geocode_address`.
