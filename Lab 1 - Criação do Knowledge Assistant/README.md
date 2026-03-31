@@ -75,16 +75,9 @@ No campo **Instructions**, defina o comportamento. Exemplo:
 2. A criação e a **sincronização** dos arquivos do volume podem levar **vários minutos** (em bases grandes, até horas). Acompanhe o painel até as fontes aparecerem como sincronizadas.
 3. Se você **adicionar ou alterar arquivos** no volume depois, use **Sync** no assistente para atualizar a base (apenas o criador do Knowledge Assistant costuma poder sincronizar, conforme a doc).
 
-### 5. Testar o agente
+Neste treinamento, **não é necessário testar o assistente no chat neste laboratório** — a validação conversacional fica para **depois** (outro momento do curso ou integração no fluxo do Supervisor).
 
-1. Quando o agente estiver pronto, use o chat de teste na própria página de configuração.
-2. Faça perguntas cujo conteúdo exista nos arquivos do `faq_volume`.
-3. Use os recursos da UI conforme disponível:
-   - **View thoughts** — raciocínio resumido.
-   - **View trace** — rastreamento (pode exigir monitoramento MLflow conforme doc).
-   - **View sources** — arquivos citados.
-
-### 6. Permissões e uso downstream
+### 5. Permissões e uso downstream
 
 - Por padrão, acesso restrito a autores/admins; conceda **Can Query** ou **Can Manage** conforme necessário para o Lab 5 e para colegas testarem.
 - Anote o **nome/identificador** do agente e, se precisar para integrações, consulte **See Agent status** (endpoint, detalhes).
@@ -100,7 +93,6 @@ No campo **Instructions**, defina o comportamento. Exemplo:
 - [ ] Nome e **Describe the content** da fonte preenchidos com contexto de negócio.
 - [ ] **Instructions** (recomendado) com tom, idioma e regras anti-alucinação.
 - [ ] **Create Agent** e aguardar sincronização.
-- [ ] Teste com perguntas reais e revisão de **sources**.
 - [ ] Permissões ajustadas para quem for usar no Lab 5.
 - [ ] Identificador do agente anotado para o Supervisor.
 
