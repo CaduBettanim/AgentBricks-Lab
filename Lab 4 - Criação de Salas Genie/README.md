@@ -24,7 +24,7 @@
 2. Crie em **+New** para criarmos a sala de Vendas; associe como fonte as seguintes tabelas: `dim_store`, `dim_product`, `ft_sales`, `mvw_sales`.
 3. Clique em **Create**
 4. Altere o nome da sala no canto superior para Genie Vendas `seu_database`. Exemplo: **Genie Vendas cbettanim**
-5. Nas **instruções do espaço** (system / instructions), cole o texto da seção **Espaço de Logística** abaixo.
+5. Vá até **Configure** > **Instructions**. Em **General Instructions** cole o texto da seção **Espaço de Logística** abaixo.
 6. Repita para o segundo espaço, usando `mvw_sales` e o texto **Espaço de Vendas**.
 7. **Anote o nome e o ID** de cada espaço — serão usados no [Lab 5](../Lab%205%20-%20Criação%20do%20Supervisor/README.md) e na Parte B (`genie_id`).
 
