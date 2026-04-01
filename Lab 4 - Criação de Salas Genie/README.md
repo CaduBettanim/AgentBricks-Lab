@@ -1,4 +1,4 @@
-# Lab 4 - Criação de Salas Genie 
+# Lab 3 - Criação de Salas Genie 
 
 ### O que é a Genie
 
