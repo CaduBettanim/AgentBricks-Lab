@@ -2,15 +2,6 @@
 
 Este laboratório guia a criação de um **Agent Bricks: Knowledge Assistant** na interface do Databricks, usando documentos em um **Unity Catalog volume** como fonte de conhecimento.
 
-> **Comece por aqui.** A criação e a sincronização do Knowledge Assistant podem levar **muito tempo**. Dispare este laboratório **primeiro** e, enquanto o agente processa, siga o [Lab 2](../Lab%202%20-%20Geração%20de%20Dados/README.md) (carga CSV), o [**Lab 2 Backup**](../Lab%202%20Backup%20-%20Geração%20de%20Dados/README.md) (dados e metric views para AgentBricks), [Lab 3](../Lab%203%20-%20Criação%20de%20Funções/) (funções) e [Lab 4](../Lab%204%20-%20Criação%20de%20Salas%20Genie/) (Genie). No [Lab 5](../Lab%205%20-%20Criação%20do%20Supervisor/README.md), você precisará do endpoint deste assistente **já criado** e dos dois Genie Spaces do Lab 4.
-
-**Referência nos materiais (alunos):** catálogo **`dbacademy`**, volume **`faq_volume`**, caminho lógico:
-
-`dbacademy.<schema_do_volume>.faq_volume`
-
-Substitua **`<schema_do_volume>`** pelo schema que o instrutor indicar no ambiente de treinamento (o volume `faq_volume` deve existir e conter arquivos suportados).
-
-> **Nota para o instrutor:** no ambiente de demonstração, o volume pode estar em outro catálogo (ex.: `serverless_stable_bettanim_catalog.<schema>.faq_volume`). **Na documentação deste repositório mantemos sempre `dbacademy` e `faq_volume`** para padronizar o material dos participantes.
 
 Documentação oficial do produto: [Use Agent Bricks: Knowledge Assistant](https://docs.databricks.com/aws/en/generative-ai/ai-builder/knowledge-assistant).
 
@@ -19,7 +10,6 @@ Documentação oficial do produto: [Use Agent Bricks: Knowledge Assistant](https
 ## Objetivo
 
 - Criar um assistente de conhecimento que responde perguntas sobre os documentos do volume, com **citações** às fontes.
-- Deixar o agente pronto para ser referenciado no **Lab 5 (Supervisor)**.
 
 ---
 
@@ -28,12 +18,12 @@ Documentação oficial do produto: [Use Agent Bricks: Knowledge Assistant](https
 ### 1. Abrir **Agents**
 
 1. No workspace Databricks, abra o menu lateral (**☰** ou navegação principal).
-2. Acesse **Agents** (ou **Mosaic AI** → **Agents**, conforme o layout da sua região/versão).
+2. Do lado esquerdo encontre e acesse **Agents**.
 3. Localize o bloco **Knowledge Assistant** (Agent Bricks: Knowledge Assistant).
 
 ### 2. Iniciar a construção
 
-1. No tile **Knowledge Assistant**, clique em **Build** (ou equivalente, ex.: **Criar** / **Get started**).
+1. No tile **Knowledge Assistant**, clique em **Build**.
 2. Você será levado ao fluxo de configuração na aba **Build**.
 
 ### 3. Configurar o agente (aba Build)
