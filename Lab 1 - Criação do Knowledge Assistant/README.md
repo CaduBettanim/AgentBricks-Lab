@@ -56,26 +56,7 @@ Preencha campos que identificam o assistente para você e para quem for usar dep
 
 > *Responda em português do Brasil. Seja claro e objetivo. Sempre que possível, indique de qual documento ou seção a informação foi retirada. Se a pergunta não puder ser respondida com base nos documentos fornecidos, diga que a base de conhecimento não contém essa informação e não invente fatos.*
 
-### 4. Criar o agente
-
-1. Clique em **Create Agent** (ou **Create**).
-2. A criação e a **sincronização** dos arquivos do volume podem levar **vários minutos** (em bases grandes, até horas). Acompanhe o painel até as fontes aparecerem como sincronizadas.
-3. Se você **adicionar ou alterar arquivos** no volume depois, use **Sync** no assistente para atualizar a base (apenas o criador do Knowledge Assistant costuma poder sincronizar, conforme a doc).
-
-Neste treinamento, **não é necessário testar o assistente no chat neste laboratório** — a validação conversacional fica para **depois** (outro momento do curso ou integração no fluxo do Supervisor).
-
----
-
-## Checklist rápido
-
-- [ ] Volume `dbacademy.<schema_do_volume>.faq_volume` existe e contém arquivos nos formatos aceitos.
-- [ ] Agents → Knowledge Assistant → **Build**.
-- [ ] Nome e descrição do agente preenchidos.
-- [ ] Fonte **UC Files** apontando para o volume correto.
-- [ ] Nome e **Describe the content** da fonte preenchidos com contexto de negócio.
-- [ ] **Instructions** (recomendado) com tom, idioma e regras anti-alucinação.
-- [ ] **Create Agent** e aguardar sincronização.
-- [ ] Identificador do agente anotado para o Supervisor (quando disponível na UI).
+2. Clique em **Save and Update**
 
 ---
 
