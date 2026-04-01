@@ -34,30 +34,27 @@ Preencha campos que identificam o assistente para você e para quem for usar dep
 
 | Campo | Sugestão (PT-BR) — ajuste ao seu caso |
 |-------|--------------------------------------|
-| **Name** | `FAQ Lojas — Knowledge Assistant` |
-| **Description** | `Assistente que responde perguntas com base em documentos de FAQ e políticas armazenados no volume Unity Catalog dbacademy, com respostas citando as fontes.` |
+| **Name** | `FAQ_Lojas_<seu_nome>` |
+| **Description** | `Assistente que responde perguntas com base em documentos de FAQ.` |
 
 #### 3.2 Fonte de conhecimento — arquivos no UC (volume)
 
-1. No painel **Knowledge source**, adicione uma fonte.
+1. No painel **Configure Knowledge source**, adicione uma fonte.
 2. Em **Type**, selecione **UC Files** (arquivos no Unity Catalog).
-3. Em **Source**, selecione o **volume** (ou **pasta dentro do volume**) onde estão os documentos:
-   - **Referência pedagógica:** `dbacademy.<schema_do_volume>.faq_volume`
-   - No seletor da UI, navegue: catálogo **`dbacademy`** → schema indicado → volume **`faq_volume`**.
+3. Em **Source**, clique na caixa de seleção e no campo de busca digite dbacademy e selecione o faq_volume. Clique em Confirm:
 4. Em **Name** (nome da fonte), use algo identificável, por exemplo: `FAQ volume — documentos loja`.
 5. Em **Describe the content**, descreva o conteúdo para o modelo saber **quando** usar esta fonte. Exemplo:
 
    > *Documentos de perguntas frequentes e orientações operacionais para equipes de loja: políticas, procedimentos e respostas padronizadas. Use esta fonte para dúvidas sobre regras, processos e conteúdo explícito nos arquivos do volume faq_volume.*
 
-6. *(Opcional)* **Add knowledge source** — até **10** fontes no total (outro volume, outro diretório, etc.).
+6. Clique em **Create Agent**.
 
 #### 3.3 Instruções do agente (opcional e recomendado)
 
-No campo **Instructions**, defina o comportamento. Exemplo:
+1. Dentro do agente, clique em **Settings**
+2. No campo **Instructions**, defina o comportamento. Exemplo:
 
 > *Responda em português do Brasil. Seja claro e objetivo. Sempre que possível, indique de qual documento ou seção a informação foi retirada. Se a pergunta não puder ser respondida com base nos documentos fornecidos, diga que a base de conhecimento não contém essa informação e não invente fatos.*
-
-> **Atenção:** a documentação do produto menciona limitações de idioma em partes da experiência; se o workspace exibir avisos ou comportamento distinto para PT-BR, siga as orientações na UI ou do instrutor.
 
 ### 4. Criar o agente
 
