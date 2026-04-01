@@ -33,7 +33,8 @@
 - Não importa em qual idioma o usuário faça a pergunta. Toda a sua resposta, incluindo texto, explicações e cabeçalhos de colunas em tabelas, DEVE ser em Português.
 ```
 
-6. No campo de perguntas faça os seguintes testes:
+6. Clique em **Save**
+7. No campo de perguntas faça os seguintes testes:
 ```text
 Qual é o valor médio de vendas por produto?
 ```
@@ -62,7 +63,9 @@ Mostre em ordem alfabética
 - Não importa em qual idioma o usuário faça a pergunta. Toda a sua resposta, incluindo texto, explicações e cabeçalhos de colunas em tabelas, DEVE ser em Português.
 ```
 
-6. No campo de perguntas faça os seguintes testes:
+6. Clique em **Save**
+
+7. No campo de perguntas faça os seguintes testes:
 ```text
 Qual era o estoque da capa de celular resistente em dezembro de 2023?
 ```
