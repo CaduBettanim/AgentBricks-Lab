@@ -1,4 +1,4 @@
-# Lab 6 — Criação do App Multi-Agente
+# Lab 5 — Criação do App Multi-Agente
 
 Este laboratório guia a criação de um novo App na Databricks.
 
