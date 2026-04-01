@@ -13,7 +13,7 @@
 3. Na janela de importação, selecione **URL** e cole o endereço abaixo.
 
 ```text
-[https://github.com/CaduBettanim/AgentBricks-Lab/blob/main/Lab%202%20-%20Geração%20de%20Dados/lab02_01_carga_csv.ipynb](https://github.com/CaduBettanim/AgentBricks-Lab/blob/3c10fab4950a3cd63bb8f17b6c22c6ca01d90cdc/assets/02_generate_data.ipynb)
+https://github.com/CaduBettanim/AgentBricks-Lab/blob/3c10fab4950a3cd63bb8f17b6c22c6ca01d90cdc/assets/02_generate_data.ipynb
 ```
 
 > Se usar a **opção B**, ajuste manualmente a variável `schema_name` na célula **ALTERE ESSE PARAMETRO**, descomentando a linha e informando seu schema — ou prefira a **opção A**, onde o placeholder segue o padrão do treinamento (`<seu_database>`).
