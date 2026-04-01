@@ -8,10 +8,8 @@
 
 ## Parte A — Criação de duas salas Genie
 
-**Objetivo:** Criar **dois** Genie Spaces (logística e vendas)
+**Objetivo:** Criar **dois** Genie Spaces (Vendas e Logística)
 
-
-### Material visual
 
 ![Cabeçalho workshop](https://raw.githubusercontent.com/Databricks-BR/workshop_agents/refs/heads/main/demo-main/img/header_workshop.png)
 
