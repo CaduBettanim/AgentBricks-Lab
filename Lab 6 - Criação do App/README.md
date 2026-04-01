@@ -43,15 +43,15 @@ Este laboratório guia a criação de um novo App na Databricks.
 10. Agora pode lançar novas perguntas. Abaixo seguem alguns exemplos:
 
 ```text
-
+O que fazer se o pedido online atrasar?
 ```
 
 ```text
-
+Quais produtos estão com estoques acima de 500 unidades?
 ```
 
 ```text
-
+Quais os meses que mais venderam?
 ```
 
 ### PARABÉNS
