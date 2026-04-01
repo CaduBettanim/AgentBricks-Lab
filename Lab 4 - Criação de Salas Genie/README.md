@@ -20,12 +20,13 @@
 ![Genie](https://raw.githubusercontent.com/Databricks-BR/workshop_agents/refs/heads/main/demo-main/img/img/03_genie.png)
 
 
-
 1. Abra **Genie** no workspace (menu lateral à esquerda).
-2. Crie um **novo espaço** para o primeiro caso de uso; associe como fonte a **metric view** `dbacademy.<seu_database>.mvw_inventory` (ou o nome exato do objeto no Catálogo).
-3. Nas **instruções do espaço** (system / instructions), cole o texto da seção **Espaço de Logística** abaixo.
-4. Repita para o segundo espaço, usando `mvw_sales` e o texto **Espaço de Vendas**.
-5. **Anote o nome e o ID** de cada espaço — serão usados no [Lab 5](../Lab%205%20-%20Criação%20do%20Supervisor/README.md) e na Parte B (`genie_id`).
+2. Crie em **+New** para criarmos a sala de Vendas; associe como fonte as seguintes tabelas: `dim_store`, `dim_product`, `ft_sales`, `mvw_sales`.
+3. Clique em **Create**
+4. Altere o nome da sala no canto superior para Genie Vendas `seu_database`. Exemplo: **Genie Vendas cbettanim**
+5. Nas **instruções do espaço** (system / instructions), cole o texto da seção **Espaço de Logística** abaixo.
+6. Repita para o segundo espaço, usando `mvw_sales` e o texto **Espaço de Vendas**.
+7. **Anote o nome e o ID** de cada espaço — serão usados no [Lab 5](../Lab%205%20-%20Criação%20do%20Supervisor/README.md) e na Parte B (`genie_id`).
 
 ---
 
