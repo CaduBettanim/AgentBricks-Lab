@@ -1,38 +1,17 @@
-# Lab 4 — Criação de Salas Genie (página de treinamento)
+# Lab 4 - Criação de Salas Genie 
 
-Este documento **reúne o conteúdo pedagógico** dos arquivos `03_1_genie_spaces.ipynb` e `03_2_genie_tools.ipynb`. Use-o como **guia principal** do laboratório; os notebooks podem ser mantidos só como cópia executável ou removidos no futuro, conforme decisão do curso.
+### O que é a Genie
 
-**Pré-requisito:** [**Lab 2 Backup**](../Lab%202%20Backup%20-%20Geração%20de%20Dados/) (tabelas e **Metric Views** `mvw_inventory` e `mvw_sales` em `dbacademy.<seu_database>`) e [Lab 3](../Lab%203%20-%20Criação%20de%20Funções/) (opcional para o fluxo mínimo do Genie na UI). O [Lab 2 principal (CSV)](../Lab%202%20-%20Geração%20de%20Dados/README.md) não cria essas metric views.
-
----
-
-## Índice
-
-1. [Seu database (`<seu_database>`)](#seu-database-seu_database)
-2. [Parte A — Dois Genie Spaces (interface)](#parte-a--dois-genie-spaces-interface)
-3. [Parte B — Funções UC: `_genie_query` e `chat_with_sales`](#parte-b--funções-uc-_genie_query-e-chat_with_sales)
+**Genie** é uma ferramenta de análise de dados conversacional: o usuário faz perguntas em linguagem natural e o sistema traduz em consultas sobre os dados configurados, devolvendo respostas e visualizações. Isso reduz a barreira técnica e acelera perguntas de negócio sobre dados governados.
 
 ---
 
-## Seu database (`<seu_database>`)
+## Parte A — Criação de duas salas Genie
 
-Cada participante usa um **schema** próprio no catálogo **`dbacademy`**: **primeira letra do nome + sobrenome**, minúsculas, sem espaços (ex.: Carlos Bettanim → `cbettanim`).
+**Objetivo:** Criar **dois** Genie Spaces (logística e vendas)
 
-Substitua **`<seu_database>`** em todo SQL abaixo antes de executar. No Databricks, use *Find and Replace*. Enquanto o placeholder existir, os objetos `dbacademy.<seu_database>` **não** são válidos no Unity Catalog.
 
-Detalhes: [README principal — Seu database](../README.md#seu-database-identificador-pessoal).
-
----
-
-## Parte A — Dois Genie Spaces (interface)
-
-| Campo | Valor |
-|-------|--------|
-| **Objetivo** | Criar **dois** Genie Spaces (logística e vendas) |
-| **Runtime sugerido** | DBR 16.4 LTS (quando usar notebook auxiliar) |
-| **Dados** | Metric views `dbacademy.<seu_database>.mvw_inventory` e `dbacademy.<seu_database>.mvw_sales` ([Lab 2 Backup](../Lab%202%20Backup%20-%20Geração%20de%20Dados/)) |
-
-### Material visual (opcional)
+### Material visual
 
 ![Cabeçalho workshop](https://raw.githubusercontent.com/Databricks-BR/workshop_agents/refs/heads/main/demo-main/img/header_workshop.png)
 
@@ -40,13 +19,9 @@ Detalhes: [README principal — Seu database](../README.md#seu-database-identifi
 
 ![Genie](https://raw.githubusercontent.com/Databricks-BR/workshop_agents/refs/heads/main/demo-main/img/img/03_genie.png)
 
-### O que é o Genie
 
-**Genie** é uma ferramenta de análise de dados conversacional: o usuário faz perguntas em linguagem natural e o sistema traduz em consultas sobre os dados configurados, devolvendo respostas e visualizações. Isso reduz a barreira técnica e acelera perguntas de negócio sobre dados governados.
 
-### Na interface do Databricks (resumo de fluxo)
-
-1. Abra **Genie** no workspace (menu lateral / Mosaic AI, conforme sua versão).
+1. Abra **Genie** no workspace (menu lateral à esquerda).
 2. Crie um **novo espaço** para o primeiro caso de uso; associe como fonte a **metric view** `dbacademy.<seu_database>.mvw_inventory` (ou o nome exato do objeto no Catálogo).
 3. Nas **instruções do espaço** (system / instructions), cole o texto da seção **Espaço de Logística** abaixo.
 4. Repita para o segundo espaço, usando `mvw_sales` e o texto **Espaço de Vendas**.
