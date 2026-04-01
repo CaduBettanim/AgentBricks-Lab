@@ -1,27 +1,32 @@
-# Lab 6 — Criação do Supervisor via Genie Code
+# Lab 6 — Criação do App Multi-Agente
 
-Este laboratório guia a criação de um novo App utilizando estratégia de Vibe Coding via Genie Code.
-
-Documentação oficial: [Genie Code](https://www.databricks.com/blog/introducing-genie-code).
+Este laboratório guia a criação de um novo App na Databricks.
 
 ---
 
 ## Objetivo
 
-- Criar um novo App para atuar como uma nova interface limpa e intuitiva, podendo compartilhar com toda a organização:
+- Criar um novo App para atuar como uma nova interface limpa e intuitiva, podendo compartilhar com toda a organização.
 
 ---
 
 ## Passo a passo na interface
 
-1. No workspace Databricks, abra **o Genie Code** (Laterial direita superior - ícone semelhante a uma estrela roxa).
-2. Digite a seguinte instrução (Não se esqueça de alterar o nome que será dado ao seu App)
-```text
-Crie um App chamado Agente_<seu_database> no Databricks Apps.
-Este app deve considerar aspectos visuais e paleta de cores do site da empresa X (COLOQUE O SITE AQUI).
-O app será para servir como interface do agente supervisor <ID DO SUPERVISOR>.
-```
-4. Clique em **Build**.
+1. No workspace Databricks, abra a aba **Compute** (Laterial esquerda).
+2. Digite a seguinte instrução (Não se esqueça de alterar o nome que será dado ao seu App).
+3. Selecione o botão **Create App**.
+4. Na interface de criação, selecione o tipo de template chamado **Agents**.
+5. Selecione o template chamado **Chat IU**.
+6. Em **Serving Endpoint** selecione o endpoint do seu Supervisor. Se não souber, faça como no exercício anterior (Agents > Selecione seu Supervisor > Endpoint) e copie o id do seu endpoint.
+7. Clique em **Next**.
+
+8. Em **Review Authorizations** selecione **Next**
+9. Em **App Name** coloque o nome do seu App como no exemplo a seguir: `App_<seu_database>`
+10. Clique **Install**
+
+`Agora devemos esperar o deploy da aplicação...`
+
+
 
 ### 2. Preencher nome e descrição do supervisor
 
