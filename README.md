@@ -28,8 +28,6 @@ Cada participante utiliza um **database** próprio. No **Unity Catalog**, isso c
 | Unity Catalog | Catálogo **`dbacademy`** — volume **`faq_volume`** |
 | PDF FAQ | Carregar dentro do volume (assets\FAQ_Aurorinha.pdf)
 
-**Pré-trabalho (opcional):** familiaridade básica com SQL e notebooks Python no Databricks.
-
 ---
 
 ## Roteiro do treinamento
