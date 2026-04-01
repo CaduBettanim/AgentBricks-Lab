@@ -1,4 +1,4 @@
-# Lab 5 — Criação do Supervisor (Agent Bricks)
+# Lab 4 — Criação do Supervisor (Agent Bricks)
 
 Este laboratório guia a criação de um **Agent Bricks: Supervisor Agent** que orquestra **vários subagentes**: os **dois Genie Spaces** e o **Knowledge Assistant**.
 
