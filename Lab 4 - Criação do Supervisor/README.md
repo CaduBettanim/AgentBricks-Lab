@@ -9,8 +9,8 @@ Documentação oficial: [Supervisor Agent — multi-agent system](https://docs.d
 ## Objetivo
 
 - Criar um **supervisor** na UI **Agents** que delega perguntas aos especialistas certos:
-  - **Genie (logística / inventário)**.
-  - **Genie (vendas)**.
+  - **Genie (Logística)**.
+  - **Genie (Vendas)**.
   - **Knowledge Assistant**.
 
 ---
