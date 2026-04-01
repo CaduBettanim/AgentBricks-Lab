@@ -1,6 +1,6 @@
 # Lab 5 — Criação do Supervisor (Agent Bricks)
 
-Este laboratório guia a criação de um **Agent Bricks: Supervisor Agent** que orquestra **vários subagentes**: os **dois Genie Spaces** do [Lab 4](../Lab%204%20-%20Criação%20de%20Salas%20Genie/) e o **Knowledge Assistant** do [Lab 1](../Lab%201%20-%20Criação%20do%20Knowledge%20Assistant/README.md).
+Este laboratório guia a criação de um **Agent Bricks: Supervisor Agent** que orquestra **vários subagentes**: os **dois Genie Spaces** e o **Knowledge Assistant**.
 
 Documentação oficial: [Supervisor Agent — multi-agent system](https://docs.databricks.com/aws/en/generative-ai/agent-bricks/multi-agent-supervisor).
 
@@ -9,64 +9,50 @@ Documentação oficial: [Supervisor Agent — multi-agent system](https://docs.d
 ## Objetivo
 
 - Criar um **supervisor** na UI **Agents** que delega perguntas aos especialistas certos:
-  - **Genie (logística / inventário)** — dados estruturados ligados à **Metric View** `dbacademy.<seu_database>.mvw_inventory` (conforme [Lab 4](../Lab%204%20-%20Criação%20de%20Salas%20Genie/03_1_genie_spaces.ipynb)).
-  - **Genie (vendas)** — dados estruturados ligados à **Metric View** `dbacademy.<seu_database>.mvw_sales`.
-  - **Knowledge Assistant** — documentos do volume **`faq_volume`** (`dbacademy.<schema_do_volume>.faq_volume`), criado no [Lab 1](../Lab%201%20-%20Criação%20do%20Knowledge%20Assistant/README.md).
-- Deixar o supervisor pronto para uso no [Lab 6](../Lab%206%20-%20Criação%20do%20App/) (app) ou em testes no Playground.
-
-> **`<seu_database>`** e **`<schema_do_volume>`** seguem as convenções do [README principal](../README.md#catálogo-e-database-schema-pessoal): substitua pelos valores do seu ambiente de treinamento. Na documentação pedagógica usamos sempre o catálogo **`dbacademy`**.
-
----
-
-## Antes de começar (dependências dos Labs 1 e 4)
-
-| Pré-requisito | Onde foi feito |
-|---------------|----------------|
-| **Dois Genie Spaces** (logística/inventário e vendas) em **`dbacademy.<seu_database>`** | [Lab 4 — `03_1_genie_spaces.ipynb`](../Lab%204%20-%20Criação%20de%20Salas%20Genie/03_1_genie_spaces.ipynb). Opcionalmente [`03_2_genie_tools.ipynb`](../Lab%204%20-%20Criação%20de%20Salas%20Genie/03_2_genie_tools.ipynb). |
-| **Knowledge Assistant** (endpoint) | [Lab 1 — README](../Lab%201%20-%20Criação%20do%20Knowledge%20Assistant/README.md) (**inicie o Lab 1 no começo do treinamento** — a criação demora). |
-| Permissões | Quem for **usar** o supervisor precisa de acesso aos **dois espaços Genie** (e aos dados UC por trás deles) e permissão **Can Query** no endpoint do Knowledge Assistant. Quem criou cada recurso deve compartilhar conforme a [documentação de compartilhamento de Genie](https://docs.databricks.com/aws/en/genie/set-up#share-a-genie-space) e as permissões do Agent Bricks. |
-
-Anote os **nomes** dos dois Genie Spaces e o **nome do Knowledge Assistant** (ou endpoint) para selecioná-los nos passos abaixo.
+  - **Genie (logística / inventário)**.
+  - **Genie (vendas)**.
+  - **Knowledge Assistant**.
 
 ---
 
 ## Passo a passo na interface
 
-### 1. Abrir **Agents** e iniciar o Supervisor
-
-1. No workspace Databricks, abra **Agents** (menu lateral; em alguns layouts: **Mosaic AI** → **Agents**).
-2. Localize o tile **Supervisor Agent** (Agent Bricks: Supervisor Agent).
-3. Clique em **Build** (ou equivalente).
+1. No workspace Databricks, abra **Agents** (menu lateral).
+2. Localize o tile **Supervisor Agent**.
+3. Clique em **Build**.
 
 ### 2. Preencher nome e descrição do supervisor
 
-| Campo | Sugestão (PT-BR) — ajuste ao seu caso |
+| Campo | Informação |
 |-------|--------------------------------------|
-| **Name** | `Supervisor — Lojas (Genie + FAQ)` |
-| **Description** | `Orquestra dois assistentes Genie (inventário/logística e vendas) sobre dados em dbacademy.<seu_database> e um Knowledge Assistant sobre documentos do volume faq_volume em dbacademy. Encaminha cada pergunta ao subagente adequado e consolida respostas quando necessário.` |
-
-*(Substitua `<seu_database>` na descrição pelo valor real se quiser texto fixo na UI.)*
+| **Name** | `Supervisor_Lojas_<seu_database>` |
+| **Description** | `Orquestra dois assistentes Genie (Logistica e Vendas) e um Knowledge Assistant sobre documentos FAQ. Encaminha cada pergunta ao subagente adequado e consolida respostas quando necessário.` |
 
 ### 3. Configurar os subagentes (**Configure Agents**)
 
-Em **Configure Agents**, você deve incluir **três** entradas (use **+ Add** entre elas, até o limite de 20 do produto):
+Em **Configure Agents**, você deve incluir **três** entradas (use **+ Add** entre elas):
 
-#### 3.1 Primeiro Genie Space — logística / inventário
+#### 3.1 Primeiro Genie Space - Vendas
 
 1. Em **Type**, selecione **Genie Space**.
-2. No menu do espaço Genie, escolha o espaço criado no **Lab 4** para **inventário / logística** (metric view **`mvw_inventory`** em `dbacademy.<seu_database>`).
-3. Revise **Agent name** e **Describe the content** (a UI pode preencher automaticamente). Ajuste para o supervisor delegar bem, por exemplo em **Describe the content**:
+2. No menu do espaço Genie, escolha a sua Genie de Vendas.
+3. Mantenha o **Agent name** como está.
+4. Em **Describe the content** Ajuste para o supervisor delegar bem as perguntas pertinentes a este agente:
 
-   > *Especialista em estoque e inventário de lojas. Use para perguntas sobre níveis de estoque, produtos, lojas e métricas de inventário a partir da base configurada no Genie (dados em dbacademy.<seu_database>, visão mvw_inventory).*
-
-#### 3.2 Segundo Genie Space — vendas
+```text
+Especialista em vendas. Use para perguntas sobre quantidade vendida, faturamento, ticket médio e rankings de produtos ou lojas.
+```
+#### 3.2 Segundo Genie Space — Logistica
 
 1. Clique em **+ Add**.
-2. **Type:** **Genie Space**.
-3. Selecione o espaço Genie de **vendas** do **Lab 4** (metric view **`mvw_sales`** em `dbacademy.<seu_database>`).
-4. Refine **Describe the content**, por exemplo:
+2. Em **Type**, selecione **Genie Space**.
+3. No menu do espaço Genie, escolha a sua Genie de Logística.
+4. Mantenha o **Agent name** como está.
+5. Em **Describe the content** Ajuste para o supervisor delegar bem as perguntas pertinentes a este agente:
 
-   > *Especialista em vendas e desempenho comercial. Use para perguntas sobre quantidade vendida, faturamento, ticket médio e rankings de produtos ou lojas (dados em dbacademy.<seu_database>, visão mvw_sales).*
+```text
+Especialista em estoque e inventário de lojas. Use para perguntas sobre níveis de estoque, produtos, lojas e métricas de inventário.
+```
 
 #### 3.3 Knowledge Assistant (Lab 1)
 
