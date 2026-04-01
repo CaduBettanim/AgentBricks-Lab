@@ -9,7 +9,7 @@ Documentação oficial do produto: [Use Agent Bricks: Knowledge Assistant](https
 
 ## Objetivo
 
-- Criar um assistente de conhecimento que responde perguntas sobre os documentos do volume, com **citações** às fontes.
+- Criar um assistente de conhecimento que responde perguntas sobre os documentos do volume.
 
 ---
 
@@ -26,11 +26,9 @@ Documentação oficial do produto: [Use Agent Bricks: Knowledge Assistant](https
 1. No tile **Knowledge Assistant**, clique em **Build**.
 2. Você será levado ao fluxo de configuração na aba **Build**.
 
-### 3. Configurar o agente (aba Build)
+### 3. Configurar o agente
 
 #### 3.1 Nome e descrição do agente
-
-Preencha campos que identificam o assistente para você e para quem for usar depois.
 
 | Campo | Sugestão (PT-BR) — ajuste ao seu caso |
 |-------|--------------------------------------|
@@ -41,18 +39,17 @@ Preencha campos que identificam o assistente para você e para quem for usar dep
 
 1. No painel **Configure Knowledge source**, adicione uma fonte.
 2. Em **Type**, selecione **UC Files** (arquivos no Unity Catalog).
-3. Em **Source**, clique na caixa de seleção e no campo de busca digite dbacademy e selecione o faq_volume. Clique em Confirm:
-4. Em **Name** (nome da fonte), use algo identificável, por exemplo: `FAQ volume — documentos loja`.
-5. Em **Describe the content**, descreva o conteúdo para o modelo saber **quando** usar esta fonte. Exemplo:
+3. Em **Source**, clique na caixa de seleção e no campo de busca digite dbacademy e selecione o faq_volume.
+5. Em **Describe the content**, descreva o conteúdo para o modelo saber quando usar esta fonte. Exemplo:
 
-   > *Documentos de perguntas frequentes e orientações operacionais para equipes de loja: políticas, procedimentos e respostas padronizadas. Use esta fonte para dúvidas sobre regras, processos e conteúdo explícito nos arquivos do volume faq_volume.*
+   > *Documentos de perguntas frequentes e orientações operacionais para equipes de loja: políticas, procedimentos e respostas padronizadas.*
 
 6. Clique em **Create Agent**.
 
-#### 3.3 Instruções do agente (opcional e recomendado)
+#### 3.3 Instruções do agente
 
 1. Dentro do agente, clique em **Settings**
-2. No campo **Instructions**, defina o comportamento. Exemplo:
+2. No campo **Instructions**, defina o comportamento:
 
 > *Responda em português do Brasil. Seja claro e objetivo. Sempre que possível, indique de qual documento ou seção a informação foi retirada. Se a pergunta não puder ser respondida com base nos documentos fornecidos, diga que a base de conhecimento não contém essa informação e não invente fatos.*
 
@@ -65,7 +62,3 @@ Preencha campos que identificam o assistente para você e para quem for usar dep
 - [Knowledge Assistant — Databricks Docs](https://docs.databricks.com/aws/en/generative-ai/ai-builder/knowledge-assistant)
 - [Agent Bricks](https://docs.databricks.com/aws/en/generative-ai/agent-bricks/)
 - [Volumes no Unity Catalog](https://docs.databricks.com/aws/en/volumes/)
-
----
-
-*Última revisão do roteiro conforme documentação Databricks (março/2026). Nomes de menus podem variar levemente por cloud e versão do workspace.*
