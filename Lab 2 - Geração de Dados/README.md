@@ -1,18 +1,16 @@
 # Lab 2 — Geração de Dados (carga CSV via Notebook)
 
-Material alinhado ao **Hands-On LAB 02** do repositório [lab_sql — `02_LAB_Notebook`](https://github.com/CaduBettanim/lab_sql/tree/main/02_LAB_Notebook) (importação de notebook, leitura de CSV públicos e gravação em tabelas Delta no Unity Catalog).
-
 ## Objetivos
 
 - Importar um notebook em **Python** no Databricks.
-- Carregar arquivos **CSV** (hospedados no GitHub) e gravá-los como tabelas **Delta** em `dbacademy.<seu_database>`.
-- Revisar os objetos no **Catalog Explorer**.
+- Criar um novo dataset dentro do seu database `dbacademy.<seu_database>`.
+- Crar funções.
 
 ## Exercício
 
-1. No menu, abra **Workspace** e vá para **Home** (ou a pasta onde deseja guardar o notebook).
-2. Nos **três pontos** (⋯) no canto superior direito, escolha **Importar** / **Import**.
-3. Na janela de importação, selecione **URL** e cole um dos endereços abaixo.
+1. No menu, abra **Workspace** e vá para **Home**.
+2. Nos **três pontos** (⋯) no canto superior direito, escolha **Import**.
+3. Na janela de importação, selecione **URL** e cole o endereço abaixo.
 
 **Opção A — repositório AgentBricks-Lab (cópia já alinhada ao placeholder `<seu_database>`):**
 
@@ -20,11 +18,6 @@ Material alinhado ao **Hands-On LAB 02** do repositório [lab_sql — `02_LAB_No
 https://github.com/CaduBettanim/AgentBricks-Lab/blob/main/Lab%202%20-%20Geração%20de%20Dados/lab02_01_carga_csv.ipynb
 ```
 
-**Opção B — repositório lab_sql (original):**
-
-```text
-https://github.com/CaduBettanim/lab_sql/blob/main/02_LAB_Notebook/lab02_01_carga_csv.ipynb
-```
 
 > Se usar a **opção B**, ajuste manualmente a variável `schema_name` na célula **ALTERE ESSE PARAMETRO**, descomentando a linha e informando seu schema — ou prefira a **opção A**, onde o placeholder segue o padrão do treinamento (`<seu_database>`).
 
