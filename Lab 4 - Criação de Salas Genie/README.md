@@ -50,7 +50,7 @@ Mostre em ordem alfabética
 
 
 1. Abra **Genie** no workspace (menu lateral à esquerda).
-2. Crie em **+New** para criarmos a sala de Vendas; associe como fonte as seguintes tabelas: `dim_store`, `dim_product`, `ft_inventory`, `mvw_inventory`.
+2. Crie em **+New** para criarmos a sala de Vendas; associe como fonte as seguintes tabelas: `dim_store`, `dim_product`, `ft_inventory`, `mvw_inventory` (para facilitar, no campo de busca digite `dbacademy.<seu_database>`)
 3. Clique em **Create**
 4. Altere o nome da sala no canto superior para Genie Logistica `seu_database`. Exemplo: **Genie Logistica cbettanim**
 5. Vá até **Configure** > **Instructions**. Em **General Instructions** cole o texto abaixo:
@@ -78,7 +78,3 @@ Quais produtos têm um estoque inferior a 500 unidades?
 
 - [Genie — Databricks](https://docs.databricks.com/aws/en/genie/)
 - [Configurar Genie space](https://docs.databricks.com/aws/en/genie/set-up)
-
----
-
-*Conteúdo alinhado aos notebooks `03_1_genie_spaces.ipynb` e `03_2_genie_tools.ipynb` do repositório.*
