@@ -1,4 +1,4 @@
-# Lab 2 — Geração de Dados (carga CSV via Notebook)
+# Lab 2 — Geração de Dados
 
 ## Objetivos
 
