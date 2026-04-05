@@ -21,7 +21,7 @@ Este laboratório guia a criação de um novo App na Databricks.
 7. Clique em **Next**.
 
 8. Em **Review Authorizations** selecione **Next**
-9. Em **App Name** coloque o nome do seu App como no exemplo a seguir: `App_<seu_database>`
+9. Em **App Name** coloque o nome do seu App como no exemplo a seguir: `app-<seu_database>` (apenas letras minúsculas, números e hifens são permitidos).
 10. Clique **Install**
 
 `Agora devemos esperar o deploy da aplicação...`
