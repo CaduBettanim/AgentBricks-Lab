@@ -20,7 +20,7 @@ Documentação oficial do produto: [Use Agent Bricks: Knowledge Assistant](https
 1. No workspace Databricks, abra o menu lateral.
 2. Do lado esquerdo encontre e acesse **Agents**.
 3. Clique em **Create Agent**.
-4. Localize o bloco **Knowledge Assistant**.
+4. Localize e clique no bloco **Knowledge Assistant**.
 
 ### 2. Iniciar a construção
 
