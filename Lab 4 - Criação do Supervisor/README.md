@@ -60,7 +60,7 @@ Especialista em estoque e inventário de lojas. Use para perguntas sobre níveis
 
 1. No workspace Databricks, clique com o botão direito em **Agents** (menu lateral).
 2. Selecione para abrir em uma nova aba.
-3. Encontre e selecione seu Knowledge Assistant que foi criado no laboratório 1.
+3. Encontre e selecione seu Knowledge Assistant que foi criado no laboratório 1 (na busca digite `FAQ_Lojas_<seu_database>`
 4. Clique no botão superior direito chamado **Endpoint**.
 5. Copie o nome do seu endpoint.
    
