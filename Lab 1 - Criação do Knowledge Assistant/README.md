@@ -55,6 +55,8 @@ Você será levado ao fluxo de configuração do Knowledge Assistant
 
 2. Clique em **Save and Update**
 
+A criação do Knowledge Assistant levará um tempo para ser concluída. Podemos seguir para o próximo exercício.
+
 ---
 
 ## Referências
