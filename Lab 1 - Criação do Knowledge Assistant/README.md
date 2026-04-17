@@ -38,7 +38,7 @@ Documentação oficial do produto: [Use Agent Bricks: Knowledge Assistant](https
 #### 3.2 Fonte de conhecimento — arquivos no UC (volume)
 
 1. No painel **Configure Knowledge source**, adicione uma fonte.
-2. Em **Type**, selecione **UC Files** (arquivos no Unity Catalog).
+2. Em **Type**, selecione **Files in Volume** (Arquivos em Volume).
 3. Em **Source**, clique na caixa de seleção e no campo de busca digite dbacademy e selecione o faq_volume.
 5. Em **Describe the content**, descreva o conteúdo para o modelo saber quando usar esta fonte. Exemplo:
 
