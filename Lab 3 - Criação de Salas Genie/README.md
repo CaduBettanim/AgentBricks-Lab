@@ -55,7 +55,7 @@ Mostre em ordem alfabética
 
 
 1. Abra **Genie** no workspace (menu lateral à esquerda).
-2. Crie em **+New** para criarmos a sala de Vendas.
+2. Crie em **+New** para criarmos a sala de Logística.
 3. Nas opções de seleção, escolha **All**
 4. No campo de busca, digite dbacademy.<seu_database>.
 5. Selecione como fonte as seguintes tabelas: `dim_store`, `dim_product`, `ft_inventory`, `mvw_inventory`
