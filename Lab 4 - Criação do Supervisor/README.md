@@ -18,8 +18,8 @@ Documentação oficial: [Supervisor Agent — multi-agent system](https://docs.d
 ## Passo a passo na interface
 
 1. No workspace Databricks, abra **Agents** (menu lateral).
-2. Localize o tile **Supervisor Agent**.
-3. Clique em **Build**.
+2. Selecione **Create Agent**
+3. Selecione o tile **Supervisor Agent**.
 
 ### 2. Preencher nome e descrição do supervisor
 
