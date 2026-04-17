@@ -16,6 +16,6 @@
 https://github.com/CaduBettanim/AgentBricks-Lab/blob/3c10fab4950a3cd63bb8f17b6c22c6ca01d90cdc/assets/02_generate_data.ipynb
 ```
 
-4. Abra o notebook importado. Na célula **NOME_DATABASE**, garanta que aponta para o seu schema.
+4. Abra o notebook importado. Na célula **NOME_DATABASE**, insira o nome do seu banco de dados (solicite instruções para o instrutor).
 5. Confirme que um **cluster** ou **Serverless** está anexado (barra superior, ao lado de **Run all**).
 6. Execute o notebook (**Run all**).
