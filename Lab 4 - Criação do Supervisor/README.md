@@ -90,8 +90,9 @@ Analise a pergunta do usuário. Se envolver números de estoque, inventário, di
 ### 6. Testar
 
 1. Clique em **Open in Playground**.
-2. Caso peça permissões de acesso aos agentes, conceda as permissões.
-3. Faça perguntas que claramente pertencem a **cada** subagente (inventário, vendas, FAQ).
+2. Se aparecer o botão **Review Capabilities**, clique nele para dar os acessos devidos ao Supervisor (Clique em **Authorize**)
+3. 4. Caso peça permissões de acesso aos agentes, conceda as permissões.
+5. Faça perguntas que claramente pertencem a **cada** subagente (inventário, vendas, FAQ).
 
 ```text
 Qual o estoque atual de cada produto?
