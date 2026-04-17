@@ -20,10 +20,12 @@
 ### Espaço de Vendas
 
 1. Abra **Genie** no workspace (menu lateral à esquerda).
-2. Crie em **+New** para criarmos a sala de Vendas; associe como fonte as seguintes tabelas: `dim_store`, `dim_product`, `ft_sales`, `mvw_sales`.
-3. Clique em **Create**
-4. Altere o nome da sala no canto superior para Genie Vendas `seu_database`. Exemplo: **Genie Vendas cbettanim**
-5. Vá até **Configure** > **Instructions**. Em **General Instructions** cole o texto abaixo:
+2. Crie em **+New** para criarmos a sala de Vendas;
+3. No campo de busca, digite dbacademy.<seu_database>.
+4. Selecione as seguintes tabelas: `dim_store`, `dim_product`, `ft_sales`, `mvw_sales`.
+5. Clique em **Create**
+6. Altere o nome da sala no canto superior para Genie Vendas `seu_database`. Exemplo: **Genie Vendas cbettanim**
+7. Vá até **Configure** > **Instructions**. Em **General Instructions** cole o texto abaixo:
 
 ```text
 - Você é um assistente de dados especializado em análise de vendas.
