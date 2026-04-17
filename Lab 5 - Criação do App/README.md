@@ -18,11 +18,12 @@ Este laboratório guia a criação de um novo App na Databricks.
 4. Na interface de criação, selecione o tipo de template chamado **Agents**.
 5. Selecione o template **Chat IU**.
 6. Em **Serving Endpoint** selecione o endpoint do seu Supervisor. Se não souber, faça como no exercício anterior (Agents > Selecione seu Supervisor > Endpoint > Na busca digite `Supervisor_Lojas_<seu_database>`) e copie o id do seu endpoint.
-7. Clique em **Next**.
+7. De volta na aba de criação de App, cole o id do seu endpoint na opção **Serving Endpoint**.
+8. Clique em **Next**.
 
-8. Em **Review Authorizations** selecione **Next**
-9. Em **App Name** coloque o nome do seu App como no exemplo a seguir: `app-<seu_database>` (apenas letras minúsculas, números e hifens são permitidos).
-10. Clique **Install**
+9. Em **Review Authorizations** selecione **Next**
+10. Em **App Name** coloque o nome do seu App como no exemplo a seguir: `app-<seu_database>` (apenas letras minúsculas, números e hifens são permitidos).
+11. Clique **Install**
 
 `Agora devemos esperar o deploy da aplicação...`
 
