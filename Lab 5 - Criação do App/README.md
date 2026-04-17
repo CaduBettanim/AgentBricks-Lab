@@ -33,7 +33,7 @@ Este laboratório guia a criação de um novo App na Databricks.
 2. Clique em **Next: Configure Git**
 3. Clique em **Next: Configure**
 4. Em **User authorization** clique no botão **+ Add scope**
-5. Selecione a opção **Manage your nodel serving endpoints**
+5. Selecione a opção **Manage your model serving endpoints**
 6. Selecione o botão **Save**
 7. Clique no botão **Deploy**
 
