@@ -22,21 +22,18 @@ Documentação oficial do produto: [Use Agent Bricks: Knowledge Assistant](https
 3. Clique em **Create Agent**.
 4. Localize e clique no bloco **Knowledge Assistant**.
 
-### 2. Iniciar a construção
+Você será levado ao fluxo de configuração do Knowledge Assistant
 
-1. No tile **Knowledge Assistant**, clique em **Build**.
-2. Você será levado ao fluxo de configuração na aba **Build**.
+### 2. Configurar o agente
 
-### 3. Configurar o agente
-
-#### 3.1 Nome e descrição do agente
+#### 2.1 Nome e descrição do agente
 
 | Campo | Sugestão (PT-BR) — ajuste ao seu caso |
 |-------|--------------------------------------|
 | **Name** | `FAQ_Lojas_<seu_nome>` |
 | **Description** | `Assistente que responde perguntas com base em documentos de FAQ.` |
 
-#### 3.2 Fonte de conhecimento — arquivos no UC (volume)
+#### 2.2 Fonte de conhecimento — arquivos no UC (volume)
 
 1. No painel **Configure Knowledge source**, adicione uma fonte.
 2. Em **Type**, selecione **Files in Volume** (Arquivos em Volume).
@@ -47,7 +44,7 @@ Documentação oficial do produto: [Use Agent Bricks: Knowledge Assistant](https
 
 6. Clique em **Create Agent**.
 
-#### 3.3 Instruções do agente
+#### 2.3 Instruções do agente
 
 1. Dentro do agente, clique em **Settings**
 2. No campo **Instructions**, defina o comportamento:
