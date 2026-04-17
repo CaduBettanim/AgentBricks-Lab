@@ -77,7 +77,7 @@ Mostre em ordem alfabética
 
 7. No campo de perguntas faça os seguintes testes:
 ```text
-Qual era o estoque da capa de celular resistente em dezembro de 2023?
+Qual é o volume de estoque da capa de celular resistente?
 ```
 
 ```text
