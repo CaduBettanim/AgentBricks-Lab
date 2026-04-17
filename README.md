@@ -26,7 +26,7 @@ Cada participante utiliza um **database** próprio. No **Unity Catalog**, isso c
 |-----------|----------|
 | Acesso ao workspace | Cada participante recebe o **link do ambiente** (ex.: 1 dia antes do treinamento). Conta com permissão de login e uso de notebooks. |
 | Unity Catalog | Catálogo **`dbacademy`** — volume **`faq_volume`** |
-| PDF FAQ | Carregar dentro do volume (assets\FAQ_Aurorinha.pdf)
+| PDF FAQ | Carregar dentro do volume (docs\FAQ_Aurorinha.pdf)
 
 ---
 
