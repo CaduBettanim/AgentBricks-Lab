@@ -25,8 +25,10 @@
 4. No campo de busca, digite dbacademy.<seu_database>.
 5. Selecione as seguintes tabelas: `dim_store`, `dim_product`, `ft_sales`, `mvw_sales`.
 6. Clique em **Create**
-7. Altere o nome da sala no canto superior para Genie Vendas `seu_database`. Exemplo: **Genie Vendas cbettanim**
-8. Vá até **Configure** > **Instructions**. Em **General Instructions** cole o texto abaixo:
+7. Em **About this space** selecione o desenho de um lápis para editar informações sobre o espaço criado.
+8. Em title altere o nome da sala para Genie Vendas `seu_database`. Exemplo: **Genie Vendas cbettanim**
+9. Clique em **Save**
+10. Vá até **Configure** > **Instructions**. Em **General Instructions** cole o texto abaixo:
 
 ```text
 - Você é um assistente de dados especializado em análise de vendas.
