@@ -38,12 +38,13 @@ Você será levado ao fluxo de configuração do Knowledge Assistant
 1. No painel **Configure Knowledge source**, adicione uma fonte.
 2. Em **Type**, selecione **Files in Volume** (Arquivos em Volume).
 3. Em **Source**, clique na caixa de seleção e no campo de busca digite dbacademy e selecione o faq_volume.
-4. Clique em **Confirm**
-5. Em **Describe the content**, descreva o conteúdo para o modelo saber quando usar esta fonte. Exemplo:
+4. Em **Name** inclua o nome FAQ <seu_nome>
+5. Clique em **Confirm**
+6. Em **Describe the content**, descreva o conteúdo para o modelo saber quando usar esta fonte. Exemplo:
 
    > *Documentos de perguntas frequentes e orientações operacionais para equipes de loja: políticas, procedimentos e respostas padronizadas.*
 
-6. Clique em **Create Agent**.
+7. Clique em **Create Agent**.
 
 #### 2.3 Instruções do agente
 
