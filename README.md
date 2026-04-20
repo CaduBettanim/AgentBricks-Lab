@@ -52,4 +52,4 @@ A UI pode variar por região/versão; siga também as orientações do instrutor
 
 ## Segurança
 
-- **Não commite** Personal Access Tokens (PAT), senhas ou segredos.
+- **Não commite** Personal Access Tokens (PAT), senhas ou secrets.
