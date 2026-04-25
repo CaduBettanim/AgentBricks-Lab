@@ -16,7 +16,7 @@ Etapas:
 3. Na janela de importação, selecione **URL** e cole o endereço abaixo.
 
 ```text
-https://github.com/CaduBettanim/AgentBricks-Lab/blob/3c10fab4950a3cd63bb8f17b6c22c6ca01d90cdc/assets/02_generate_data.ipynb
+https://github.com/CaduBettanim/AgentBricks-Lab/blob/5407031258d9edd70c0623542fa797e6c1a64bec/assets/demo_Token_Chunking_Embedding.ipynb
 ```
 
 4. Abra o notebook importado. 
