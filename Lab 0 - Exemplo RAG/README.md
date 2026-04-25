@@ -1,6 +1,7 @@
 # Lab 0 — Processo de Embedding no Databricks
 
-## **Objetivo:** Pipeline básico de processamento de texto para gerar embeddings, comparando três textos e analisar cada uma das execuções.
+## **Objetivo:** 
+Pipeline básico de processamento de texto para gerar embeddings, comparando três textos e analisar cada uma das execuções.
 
 Etapas:
 
