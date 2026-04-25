@@ -20,6 +20,7 @@ Este laboratório guia a criação de um novo App na Databricks.
 6. Em **Serving Endpoint** selecione o endpoint do seu Supervisor. Se não souber, vá para Agents > Selecione seu Supervisor > Endpoint > Na busca digite `Supervisor_Lojas_<seu_database>` e copie o id do seu endpoint.
 
 **OBSERVAÇÃO: CERTIFIQUE-SE QUE O ENDPOINT INSERIDO É DO SUPERVISOR E NÃO DO KNOWLEDGE ASSISTANT**
+
 7. De volta na aba de criação de App, cole o id do seu endpoint na opção **Serving Endpoint**.
 8. Clique em **Next**.
 
