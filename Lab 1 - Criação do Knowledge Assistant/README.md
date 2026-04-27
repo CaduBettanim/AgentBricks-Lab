@@ -36,7 +36,7 @@ Você será levado ao fluxo de configuração do Knowledge Assistant
 #### 2.2 Fonte de conhecimento — arquivos no UC (volume)
 
 1. No painel **Configure Knowledge source**, adicione uma fonte.
-2. Em **Type**, selecione **Files in Volume** (Arquivos em Volume).
+2. Em **Type**, selecione **Files in a Volume** (Arquivos em Volume).
 3. Em **Source**, clique na caixa de seleção e no campo de busca digite dbacademy e selecione o faq_volume.
 4. Em **Name** inclua o nome FAQ <seu_nome>
 5. Clique em **Confirm**
@@ -44,16 +44,12 @@ Você será levado ao fluxo de configuração do Knowledge Assistant
 
    > *Documentos de perguntas frequentes e orientações operacionais para equipes de loja: políticas, procedimentos e respostas padronizadas.*
 
-7. Clique em **Create Agent**.
-
-#### 2.3 Instruções do agente
-
-1. Dentro do agente, clique em **Settings**
-2. No campo **Instructions**, defina o comportamento:
+7. Expanda optional (Opcional).
+8. No campo **Instructions**, defina o comportamento:
 
 > *Responda em português do Brasil. Seja claro e objetivo. Sempre que possível, indique de qual documento ou seção a informação foi retirada. Se a pergunta não puder ser respondida com base nos documentos fornecidos, diga que a base de conhecimento não contém essa informação e não invente fatos.*
 
-2. Clique em **Save and Update**
+9. Clique em **Create Agent**.
 
 A criação do Knowledge Assistant levará um tempo para ser concluída. Podemos seguir para o próximo exercício.
 
