@@ -24,9 +24,22 @@ Cada participante utiliza um **database** próprio. No **Unity Catalog**, isso c
 
 | Requisito | Detalhes |
 |-----------|----------|
-| Acesso ao workspace | Cada participante recebe o **link do ambiente** (ex.: 1 dia antes do treinamento). Conta com permissão de login e uso de notebooks. |
-| Unity Catalog | Catálogo **`dbacademy`** — volume **`faq_volume`** |
-| PDF FAQ | Carregar dentro do volume (docs\FAQ_Aurorinha.pdf)
+| Acesso ao workspace | Cada participante recebe o **link do ambiente** (ex.: 1 dia antes do treinamento). Login, uso de notebooks e permissões são concedidos pelo notebook de preparação (grupo `dbacademy_workshop`). |
+| Unity Catalog | Catálogo `dbacademy` e volume `dbacademy.default.faq_volume` (já com o PDF FAQ) criados pelo notebook de preparação. |
+
+---
+
+## Preparação do ambiente (instrutor/admin)
+
+O administrador executa **`workshop_prep_checker`** (idempotente, requer admin de conta) para
+provisionar e validar tudo antes do treinamento: grupo `dbacademy_workshop` com os participantes
+e direitos de acesso, catálogo `dbacademy`, SQL Warehouse, cluster multiuso, volume
+`dbacademy.default.faq_volume` com o PDF FAQ, e as concessões. Exibe uma matriz por participante e
+um Relatório final (✅ / ❌ / ⚠️ / ➖).
+
+**Uso:** rode as **duas primeiras células** para exibir os widgets, selecione os participantes e
+os alternadores, e use Run all. Para limpar ao fim, rode **`workshop_teardown`** (o `DROP CATALOG`
+vem desativado por padrão).
 
 ---
 
