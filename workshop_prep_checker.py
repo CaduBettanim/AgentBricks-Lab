@@ -13,6 +13,12 @@
 # MAGIC **Este notebook é idempotente**: se executado novamente, reutiliza qualquer recurso que
 # MAGIC já existe (criar se não existir + `GRANT`s idempotentes). Portanto, é seguro re-executar.
 # MAGIC
+# MAGIC > ⚠️ **Importante:** rode as **duas primeiras células** para exibir os widgets, selecione os
+# MAGIC > participantes e use **Run all**. **Todas as células devem ser executadas e terminar com
+# MAGIC > sucesso** — só assim há garantia de que todos os participantes conseguirão seguir o workshop.
+# MAGIC > Se qualquer célula falhar (❌ ou ⚠️), corrija a causa e **re-execute o notebook inteiro**
+# MAGIC > antes do início do treinamento. O veredito final aparece na seção **5. Relatório final**.
+# MAGIC
 # MAGIC O que a **preparação** faz (passos de computação são opcionais por meio dos alternadores):
 # MAGIC 1. Garantir um grupo do workshop **`dbacademy_workshop`** e adicionar os participantes selecionados.
 # MAGIC 2. Criar o catálogo **`dbacademy`** (para com orientação se o metastore não tem armazenamento).
@@ -388,7 +394,7 @@ def ensure_cluster(name):
         node_type_id=_node,
         driver_node_type_id=_node,
         autoscale=AutoScale(min_workers=2, max_workers=8),
-        autotermination_minutes=60,
+        autotermination_minutes=240,
         data_security_mode=DataSecurityMode.USER_ISOLATION,  # Modo de acesso compartilhado (multi-usuário + UC)
     )
     return next((c.cluster_id for c in w.clusters.list() if c.cluster_name == name), None), "criado"
@@ -635,8 +641,19 @@ report = [
 ]
 
 _all_ok = all(v is True for _, v in report)
-print("GERAL:", "✅ PRONTO: tudo foi preparado e verificado."
-      if _all_ok else "❌ NÃO PRONTO: veja as linhas ❌/⚠️ abaixo (e os detalhes na seção 4b).")
+if _all_ok:
+    print("=" * 70)
+    print(f"{OK} CHECKS COMPLETOS: todos os {len(ATTENDEES)} participante(s) selecionado(s) têm as "
+          f"permissões necessárias para participar do workshop.")
+    print("   O ambiente está pronto: grupo, catálogo, volume + PDF FAQ, warehouse, cluster e")
+    print("   concessões preparados e verificados. Pode iniciar o treinamento. 🎉")
+    print("=" * 70)
+else:
+    print("=" * 70)
+    print(f"{NO} AMBIENTE NÃO PRONTO: um ou mais itens estão ❌/⚠️ abaixo. Corrija a causa e "
+          f"re-execute o notebook inteiro")
+    print("   antes do treinamento (veja os detalhes por participante na seção 4b).")
+    print("=" * 70)
 display(pd.DataFrame([{"Item": label, "Status": _sym(val)} for label, val in report],
                      columns=["Item", "Status"]))
 

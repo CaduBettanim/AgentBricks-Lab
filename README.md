@@ -31,15 +31,25 @@ Cada participante utiliza um **database** próprio. No **Unity Catalog**, isso c
 
 ## Preparação do ambiente (instrutor/admin)
 
-O administrador executa **`workshop_prep_checker`** (idempotente, requer admin de conta) para
-provisionar e validar tudo antes do treinamento: grupo `dbacademy_workshop` com os participantes
-e direitos de acesso, catálogo `dbacademy`, SQL Warehouse, cluster multiuso, volume
-`dbacademy.default.faq_volume` com o PDF FAQ, e as concessões. Exibe uma matriz por participante e
-um Relatório final (✅ / ❌ / ⚠️ / ➖).
+Este lab inclui dois notebooks auxiliares: **`workshop_prep_checker`** cuida da preparação
+do ambiente e da checagem dos requisitos, e **`workshop_teardown`** remove os recursos
+criados para o workshop.
 
-**Uso:** rode as **duas primeiras células** para exibir os widgets, selecione os participantes e
-os alternadores, e use Run all. Para limpar ao fim, rode **`workshop_teardown`** (o `DROP CATALOG`
-vem desativado por padrão).
+O **`workshop_prep_checker`** é idempotente (seguro re-executar) e requer **admin de conta**.
+
+**Passos:**
+
+1. Abra o notebook e rode as **duas primeiras células** para exibir os widgets.
+2. Selecione os **participantes** e ajuste os alternadores.
+3. Clique em **Run all** — todas as células devem terminar com sucesso.
+4. Confira o veredito na seção **5. Relatório final**. O esperado é
+   `✅ CHECKS COMPLETOS`. Se houver ❌ ou ⚠️, corrija e re-execute o notebook inteiro.
+
+Ele cria: grupo `dbacademy_workshop` (participantes + acessos), catálogo `dbacademy`,
+volume `dbacademy.default.faq_volume` (com o PDF FAQ), SQL Warehouse, cluster multiuso
+e as concessões.
+
+Após o workshop, rode **`workshop_teardown`** para limpar (o `DROP CATALOG` vem desativado).
 
 ---
 
