@@ -28,7 +28,10 @@
 # MAGIC 5. Conceder ao grupo tudo o que os participantes precisam: USE CATALOG, CREATE SCHEMA, USE SCHEMA
 # MAGIC    + READ VOLUME no volume faq_volume, warehouse CAN_USE e cluster CAN_ATTACH_TO.
 # MAGIC
-# MAGIC Depois, a **verificação** exibe uma matriz por participante (✅ / ❌ / ⚠️ / ➖).
+# MAGIC Depois, a **verificação** exibe uma matriz por participante (✅ / ❌ / ⚠️ / ➖) e checa as
+# MAGIC **features do workspace** necessárias para Agent Bricks e Vector Search (Labs 1, 4, 5):
+# MAGIC Model Serving / Foundation Model APIs, embeddings, Vector Search, Knowledge Assistant e
+# MAGIC Multi-Agent Supervisor. Se qualquer uma faltar, o veredito final marca o ambiente como NÃO PRONTO.
 
 # COMMAND ----------
 
@@ -168,6 +171,10 @@ def acl_has_permission(acl, user_email, user_groups, accepted_levels):
     return False, "não concedido"
 
 OK, NO, ERR, NA = "✅", "❌", "⚠️", "➖"
+
+def _sym(v):
+    return OK if v is True else (NO if v is False else ERR)
+
 print("Funções auxiliares definidas.")
 
 # COMMAND ----------
@@ -568,16 +575,104 @@ else:
 # COMMAND ----------
 
 # MAGIC %md
+# MAGIC ## 4c. Features do workspace: Agent Bricks & Vector Search
+# MAGIC Estas features são do **workspace inteiro** (não por participante) e são necessárias para os
+# MAGIC Labs 1, 4 e 5. Detecção validada ao vivo contra um workspace com e outro sem as features:
+# MAGIC | Feature | Sinal | Necessária por |
+# MAGIC |---|---|---|
+# MAGIC | Model Serving / Foundation Model APIs | `serving_endpoints.list()` funciona vs `NotFound` | 1, 4, 5 (pré-requisito) |
+# MAGIC | Embeddings `databricks-gte-large-en` | endpoint READY | 1 |
+# MAGIC | Vector Search | `GET /vector-search/endpoints` responde vs timeout | 1 |
+# MAGIC | Knowledge Assistant | `GET /knowledge-assistants` responde vs 404 | 1, 4, 5 |
+# MAGIC | Multi-Agent Supervisor | co-gated com KA (o `list` do MAS é falso-positivo) | 4, 5 |
+
+# COMMAND ----------
+
+# Detecção de features do workspace (VS / KA / MAS).
+# Notas apuradas ao vivo:
+#  • O `list` do Multi-Agent Supervisor responde [] MESMO em regiões sem a feature (API de
+#    control-plane), então NÃO serve de gate — KA e MAS são Agent Bricks e co-gated, logo
+#    derivamos MAS de KA (cujo 404 é sinal limpo).
+#  • O `list` do Vector Search PENDURA em regiões sem a feature, por isso usamos um cliente
+#    com timeout curto para o notebook não travar por minutos.
+from databricks.sdk.core import Config
+
+try:
+    # retry_timeout_seconds é o que realmente limita o tempo de parede (o SDK re-tenta o
+    # timeout dentro desse orçamento), por isso os dois valores em 5s. Cada tentativa leva
+    # ~6-7s (5s de cap + handshake/overhead); as 2 tentativas do _feature_probe somam ~13s no
+    # pior caso (região SEM a feature). Num workspace saudável o probe responde em <1s
+    # (p99 ~370ms, max ~640ms), então há folga enorme e o retry nunca dispara.
+    w_probe = WorkspaceClient(config=Config(http_timeout_seconds=5, retry_timeout_seconds=5))
+except Exception:
+    w_probe = w  # fallback: usa o cliente padrão se a config curta falhar
+
+EMBEDDING_ENDPOINT = "databricks-gte-large-en"  # embeddings que o Lab 1 usa
+
+def _feature_probe(path, key, attempts=2):
+    """Retorna (disponível, detalhe): True=API servida, False=indisponível, None=indeterminado.
+    Um timeout numa região sem a feature é o sinal esperado; ainda assim tentamos `attempts`
+    vezes para não transformar um blip transitório de rede num falso ❌ que reprova o veredito."""
+    last = None
+    for _i in range(attempts):
+        try:
+            r = w_probe.api_client.do("GET", path)
+        except Exception as e:
+            s, tn = str(e), type(e).__name__
+            if "Timeout" in tn or "Timed out" in s:
+                last = (False, f"rota não resolve (timeout após {attempts} tentativas) — região sem a feature")
+                continue  # pode ser blip transitório; tenta de novo
+            if "NotFound" in tn or "404" in s:
+                return False, "API não servida (404) — feature não habilitada"
+            if "403" in s or "PERMISSION_DENIED" in s or "not authorized" in s.lower():
+                return None, "sem permissão para verificar (feature provavelmente existe)"
+            return None, f"indeterminado: {tn}: {s[:80]}"
+        else:
+            items = (r.get(key) if isinstance(r, dict) else r) or []
+            return True, f"disponível ({len(items)} recurso(s) existentes)"
+    return last  # esgotou as tentativas com timeout
+
+# Model Serving / Foundation Model APIs — pré-requisito das demais features (KA/MAS/VS com
+# embeddings gerenciados dependem delas). Reportado à parte; as features são checadas
+# independentemente logo abaixo.
+SERVING_OK, FM_EMB_READY = False, False
+try:
+    _eps = list(w.serving_endpoints.list())
+    SERVING_OK = True  # a API respondeu (região sem serving devolve NotFound)
+    FM_EMB_READY = any(
+        getattr(e, "name", None) == EMBEDDING_ENDPOINT
+        and getattr(getattr(getattr(e, "state", None), "ready", None), "value", None) == "READY"
+        for e in _eps)
+except Exception as e:
+    print(f"{NO} Model Serving indisponível neste workspace ({type(e).__name__}).")
+
+VS_OK, _vs_d = _feature_probe("/api/2.0/vector-search/endpoints", "endpoints")
+KA_OK, _ka_d = _feature_probe("/api/2.1/knowledge-assistants", "knowledge_assistants")
+MAS_OK = KA_OK  # co-gated com KA; o list do MAS é falso-positivo
+
+feature_report = [
+    ("Model Serving disponível (base de Agent Bricks / VS)", SERVING_OK),
+    (f"Embeddings '{EMBEDDING_ENDPOINT}' READY (Lab 1)", FM_EMB_READY),
+    ("Vector Search disponível (Lab 1)", VS_OK),
+    ("Knowledge Assistant / Agent Bricks disponível (Labs 1,4,5)", KA_OK),
+    ("Multi-Agent Supervisor disponível (Labs 4,5)", MAS_OK),
+]
+print(f"Features do workspace. Legenda: {OK} disponível  {NO} indisponível  {ERR} indeterminado")
+display(pd.DataFrame(
+    [{"Feature": _l, "Status": _sym(_v)} for _l, _v in feature_report],
+    columns=["Feature", "Status"]))
+
+# COMMAND ----------
+
+# MAGIC %md
 # MAGIC ## 5. Relatório final
 # MAGIC Um único ✅ / ❌ por item que foi preparado ou verificado (⚠️ = não foi possível determinar).
-# MAGIC Sinalizadores de recursos que um notebook não pode verificar estão listados no final como lembretes manuais.
+# MAGIC Inclui as features do workspace da seção 4c (Vector Search, Knowledge Assistant, Multi-Agent
+# MAGIC Supervisor): se qualquer uma faltar, o ambiente é marcado como NÃO PRONTO.
 
 # COMMAND ----------
 
 import os
-
-def _sym(v):
-    return OK if v is True else (NO if v is False else ERR)
 
 def _group_has_uc(securable_type, full_name, group, needed):
     """Retorna True se o grupo detém todos os privilégios `needed` (ou ALL_PRIVILEGES) no recurso protegido."""
@@ -640,6 +735,12 @@ report = [
     (f"Todos os {len(ATTENDEES)} participante(s) passam em todas as verificações", _attendees_ok),
 ]
 
+# Features do workspace (VS / KA / MAS), calculadas na seção 4c — bloqueiam o veredito.
+try:
+    report += feature_report
+except NameError:
+    report.append(("Features do workspace (VS/KA/MAS) — seção 4c não executada", None))
+
 _all_ok = all(v is True for _, v in report)
 if _all_ok:
     print("=" * 70)
@@ -656,6 +757,3 @@ else:
     print("=" * 70)
 display(pd.DataFrame([{"Item": label, "Status": _sym(val)} for label, val in report],
                      columns=["Item", "Status"]))
-
-print("\nNão verificado automaticamente. Confirme manualmente no console de Admin (nível de workspace):")
-print("  • Agent Bricks / Agents (Labs 1,4,5)   • Vector Search (Lab 1)")
