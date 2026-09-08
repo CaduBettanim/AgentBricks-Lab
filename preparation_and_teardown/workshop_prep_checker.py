@@ -57,8 +57,10 @@ except Exception as _e:
 _serving_opts = [_PICK_NONE] + _serving_choices
 
 print(f"Encontrados {len(_user_choices)} usuário(s) e {len(_serving_choices)} endpoint(s) de serving.")
-if len(_attendee_opts) > 1024:
-    print("⚠️  >1024 usuários; o multisseletor pode ser truncado. Considere usar um workspace ou grupo menor.")
+more_than_1024_users = len(_attendee_opts) > 1024
+
+if more_than_1024_users:
+    print("⚠️  Esse workspace possui mais usuários do que o suportado pelo widget multisseletor. Será necessário preencher a lista de participantes manualmente na célula a seguir.")
 
 # COMMAND ----------
 
@@ -68,7 +70,13 @@ if len(_attendee_opts) > 1024:
 dbutils.widgets.dropdown("create_catalog", "true", ["true", "false"], "1. Criar Catálogo")
 dbutils.widgets.dropdown("create_warehouse", "true", ["true", "false"], "2. Criar SQL Warehouse")
 dbutils.widgets.dropdown("create_cluster", "true", ["true", "false"], "3. Criar Cluster Multiuso")
-dbutils.widgets.multiselect("attendees", _PICK_ATT, _attendee_opts, "4. Participantes (usuários do workspace)")
+if not more_than_1024_users:
+    dbutils.widgets.multiselect("attendees", _PICK_ATT, _attendee_opts, "4. Participantes (usuários do workspace)")
+
+else:
+    attendees_manual = [
+        # preencha essa lista com os emails dos participantes apenas se indicado na célula acima
+    ]
 dbutils.widgets.multiselect("serving_endpoints", _PICK_NONE, _serving_opts, "5. (Opcional) Endpoints de serving (CAN_QUERY)")
 
 # COMMAND ----------
@@ -93,8 +101,7 @@ PDF_URL = ("https://raw.githubusercontent.com/CaduBettanim/AgentBricks-Lab/"
 CREATE_CATALOG = dbutils.widgets.get("create_catalog") == "true"
 CREATE_WAREHOUSE = dbutils.widgets.get("create_warehouse") == "true"
 CREATE_CLUSTER = dbutils.widgets.get("create_cluster") == "true"
-ATTENDEES = [a.strip() for a in dbutils.widgets.get("attendees").split(",")
-             if a.strip() and a.strip() != _PICK_ATT]
+ATTENDEES = [a.strip() for a in dbutils.widgets.get("attendees").split(",") if a.strip() and a.strip() != _PICK_ATT] if not more_than_1024_users else attendees_manual
 SERVING_ENDPOINTS = [s.strip() for s in dbutils.widgets.get("serving_endpoints").split(",")
                      if s.strip() and s.strip() != _PICK_NONE]
 
